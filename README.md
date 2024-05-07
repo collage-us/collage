@@ -37,16 +37,16 @@
 <h3 align="center">Collage</h3>
 
   <p align="center">
-    project_description
+    An AI-Powered College Course Recommendation Website
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/collage-us/collage"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://github.com/collage-us/collage">View Demo</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    <a href="https://github.com/collage-us/collage/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+    <a href="https://github.com/collage-us/collage/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
   </p>
 </div>
 
@@ -86,6 +86,31 @@
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
 Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+
+Project structure is shown as follows:
+```
+collage
+├── __init__.py
+├── config.py
+├── frontend
+│   ├── main.jsx
+│   └── registration.jsx
+├── llm
+│   └── llm.py
+├── server
+│   ├── __init__.py
+│   └── main.py
+├── static
+│   ├── images
+│   └── js
+│       ├── bundle.js
+│       └── bundle.js.map
+├── templates
+│   └── index.html
+└── views
+    ├── __init__.py
+    └── index.py
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

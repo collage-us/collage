@@ -5,7 +5,7 @@ import flask
 app = flask.Flask(__name__)
 
 # Read settings from config module (collage/config.py)
-app.config.from_object('COLLAGE.config')
+app.config.from_object('collage.config')
 
 app.config.from_envvar('COLLAGE_SETTINGS', silent=True)
 

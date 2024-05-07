@@ -1,0 +1,1 @@
+from collage.views.index import get_index
