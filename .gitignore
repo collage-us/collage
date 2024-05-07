@@ -155,3 +155,19 @@ cython_debug/
 #.idea/
 
 *DS_Store*
+
+
+# Javascript
+node_modules/
+cookies.txt
+session.json
+bundle.js
+*.js.map
+**/e2e/test_cypress_hello.cy.js
+# Don't include the screenshots and videos that Cypress generates in headless mode.
+**/cypress/videos
+**/cypress/screenshots
+bundle.js
+*node_modules*
+files_for_autograder_io/
+*/var/*
