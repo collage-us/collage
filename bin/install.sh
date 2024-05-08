@@ -4,7 +4,7 @@
 set -Eeuo pipefail
 set -x
 
-python -m venv env
+python3.12 -m venv env
 
 source env/bin/activate
 

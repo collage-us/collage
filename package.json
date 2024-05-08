@@ -1,7 +1,7 @@
 {
   "name": "collage",
   "version": "1.0.0",
-  "description": "collage front end",
+  "description": "collage ui",
   "main": "collage/frontend/main.jsx",
   "author": "collage-team",
   "repository": {},
