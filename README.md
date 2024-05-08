@@ -35,18 +35,8 @@
   </a> -->
 
 <h3 align="center">Collage</h3>
-
   <p align="center">
-    An AI-Powered College Course Recommendation Website
-    <br />
-    <a href="https://github.com/collage-us/collage"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/collage-us/collage">View Demo</a>
-    ·
-    <a href="https://github.com/collage-us/collage/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
-    ·
-    <a href="https://github.com/collage-us/collage/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+    [TODO: short intro]
   </p>
 </div>
 
@@ -58,9 +48,6 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
@@ -70,8 +57,6 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -85,7 +70,7 @@
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+[TODO: introduction]
 
 Project structure is shown as follows:
 ```
@@ -115,22 +100,6 @@ collage
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
-### Built With
-
-<!-- * [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url] -->
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 <!-- GETTING STARTED -->
 ## Getting Started
 
@@ -141,8 +110,6 @@ Please follow these steps below to set up the project locally.
 We use Python version **3.12.3**. To check your version, run:
 ```
 $ python --version
-
-Python 3.12.3
 ```
 
 ### Installation
@@ -175,33 +142,33 @@ Then open your browser and go to http://localhost:8001/
 
 
 <!-- LICENSE -->
-## License
+<!-- ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 
 
 <!-- CONTACT -->
-## Contact
+<!-- ## Contact
 
 Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
 
 Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 
 
 <!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
+<!-- ## Acknowledgments
 
 * []()
 * []()
 * []()
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 
 
