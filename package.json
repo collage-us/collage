@@ -1,10 +1,9 @@
 {
-  "name": "insta485",
+  "name": "collage",
   "version": "1.0.0",
-  "description": "insta485 front end",
-  "main": "insta485/js/main.jsx",
-  "author": "awdeorio",
-  "license": "MIT",
+  "description": "collage front end",
+  "main": "collage/frontend/main.jsx",
+  "author": "collage-team",
   "repository": {},
   "devDependencies": {
     "@babel/core": ">=7.23.9",
