@@ -14,3 +14,8 @@ COLLAGE_ROOT = pathlib.Path(__file__).resolve().parent.parent
 UPLOAD_FOLDER = COLLAGE_ROOT/'var'/'uploads'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 MAX_CONTENT_LENGTH = 16 * 1024 * 1024
+
+DB_HOST = ""
+DB_USER = ""
+DB_PASSWORD = ""
+DB_DATABASE = ""
