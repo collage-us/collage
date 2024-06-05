@@ -7,28 +7,6 @@ import About from './About';
 import Mission from './Mission';
 import Support from './Support';
 
-function LeftButton({ name, onButtonClick }) {
-  return (
-    <button className="left-button" onClick={onButtonClick}>
-      {name}
-    </button>
-  )
-}
-
-function Header(){
-  function handleClick() {
-
-  }
-
-  return(
-    <>
-      <div className="header">
-        <LeftButton value="Collage" onButtonClick={() => handleClick()}></LeftButton>
-      </div>
-    </>
-  )
-}
-
 export default function Registration() {
   return (
     <>
@@ -46,3 +24,26 @@ export default function Registration() {
     </>
   );
 };
+
+
+// function LeftButton({ name, onButtonClick }) {
+//   return (
+//     <button className="left-button" onClick={onButtonClick}>
+//       {name}
+//     </button>
+//   )
+// }
+
+// function Header(){
+//   function handleClick() {
+
+//   }
+
+//   return(
+//     <>
+//       <div className="header">
+//         <LeftButton value="Collage" onButtonClick={() => handleClick()}></LeftButton>
+//       </div>
+//     </>
+//   )
+// }
