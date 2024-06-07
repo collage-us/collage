@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Title, Button, Group } from '@mantine/core';
 import Navbar from './Navbar';
 import Home from './Home';
 import About from './About';
 import Mission from './Mission';
 import Support from './Support';
+import Signup from './Signup/Wrapper';
 
 function LeftButton({ name, onButtonClick }) {
   return (
@@ -40,6 +42,7 @@ export default function Registration() {
             <Route path="/about" element={<About />} />
             <Route path="/mission" element={<Mission />} />
             <Route path="/support" element={<Support />} />
+            <Route path="/signup" element={<Signup />} />
           </Routes>
         </div>
       </Router>
