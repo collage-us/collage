@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import { Title, Button, Group } from '@mantine/core';
+import { Title, Button, ActionIcon } from '@mantine/core';
+import { IconCircleChevronRight, IconCircleChevronLeft } from '@tabler/icons-react';
 import '@mantine/core/styles/Button.css'
 import Signup1 from './Signup-1';
 import Signup2 from './Signup-2';
@@ -17,6 +18,7 @@ const Signup = () => {
   const [major, setMajor] = useState('');
   const [startYear, setStartYear] = useState('');
   const [gradYear, setGradYear] = useState('');
+  const [validEntries, setValidEntries] = useState(false); //should be set to true when the states of the current page are valid
   const titleTexts = ['Hey there!', 'Glad to see you here!', 'Get excited!', 'Last step! (optional)'];
   const buttonTexts = ['Next step', 'Keep going', 'Almost there', 'Start Collage'];
   return <div className="wrapper">
@@ -24,7 +26,18 @@ const Signup = () => {
         <Title order={1}>Collage</Title>
     </div>
     <div className="wrapperBox">
-        <div className="wrapperNav"></div>
+        <div className="wrapperNav">
+            {currPage > 0 && <div className="leftArrow">
+                <ActionIcon variant="subtle" onClick={() => (setCurrPage(currPage-1))}>
+                    <IconCircleChevronLeft stroke="1.5" color="black"/>
+                </ActionIcon>
+            </div>}
+            {currPage < 3 && <div className="rightArrow">
+                <ActionIcon variant="subtle" onClick={() => (setCurrPage(currPage+1))}>
+                    <IconCircleChevronRight stroke="1.5" color="black"/>
+                </ActionIcon>
+            </div>}
+        </div>
         <div className="wrapperTitle"><Title order={2}>{titleTexts[currPage]}</Title></div>
         <div className="wrapperContent">
         {currPage == 0 && <Signup1/>}

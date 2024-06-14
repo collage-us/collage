@@ -7,7 +7,6 @@
 }
 
 .collageTitle {
-  height: 10vh;
   width: 100vw;
   padding-top: 2.5%;
   padding-bottom: 2.5%;
@@ -35,12 +34,36 @@
 .wrapperContent {
   grid-row-start: 3;
   grid-row-end: 4;
-  padding: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3%;
+  width: 70%;
+  height: 90%;
+  text-align: left;
+}
+
+.wrapperContent br {
+  display: block;
+  margin: 10px 0px;
+  content: "";
 }
 
 .wrapperNav {
+  margin-top: 3%;
   grid-row-start: 1;
   grid-row-end: 2;
+  display: flex;
+  justify-content: space-between;
+}
+
+.leftArrow {
+  margin-left: 3%;
+  margin-right: auto;
+}
+
+.rightArrow {
+  margin-left: auto;
+  margin-right: 3%;
 }
 
 .wrapperTitle {
@@ -57,7 +80,7 @@
   margin-left: auto;
   margin-right: auto;
   grid-row-start: 4;
-  width: 80%;
+  width: 70%;
   height: 90%;
   font-family: "Judson";
 }
@@ -96,4 +119,10 @@
   cursor: pointer;
   font-weight: bold;
   color: black;
+}
+
+.passwordText {
+  margin: 0;
+  color: gray;
+  line-height: 15px;
 }
