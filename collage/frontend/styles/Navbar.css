@@ -1,0 +1,61 @@
+nav{
+  padding: 10px 20px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+nav ul li {
+  margin-top: 10px;
+  position: relative;
+}
+
+.logo{
+  margin-right: 40px;
+}
+
+.link-1, .link-2, .link-3{
+  margin-right: 50px;
+}
+
+nav ul li:first-child {
+  margin-left: 20px;
+}
+
+nav ul li:last-child {
+  margin-right: 0;
+}
+
+.logo-text{
+  color: #FF7C7C;
+  font-size: 23px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 17px;
+}
+
+.story:after, .mission:after, .support:after{
+  content: ''; /* Add content after the element */
+  position: absolute; /* Position absolute for pseudo-element */
+  width: 100%; /* Full width */
+  transform: scaleX(0); /* Initial scale of 0 for underline effect */
+  height: 2px; /* Height of the underline */
+  bottom: 0; /* Align to bottom */
+  left: 0; /* Align to left */
+  background-color: black; /* Background color of the underline */
+  transform-origin: bottom right; /* Set transform origin */
+  transition: transform 0.25s ease-out; /* Transition effect for the underline */
+}
+
+.story:hover:after, .mission:hover:after, .support:hover:after {
+  transform: scaleX(1);
+  transform-origin:bottom left;
+}
