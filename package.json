@@ -30,6 +30,11 @@
     "eslint-plugin-jsx-a11y": ">=6.8.0",
     "eslint-plugin-react": ">=7.33.2",
     "eslint-plugin-react-hooks": ">=4.6.0",
+    "postcss": "^8.4.38",
+    "postcss-loader": "^8.1.1",
+    "postcss-preset-env": "^9.5.14",
+    "postcss-preset-mantine": "^1.15.0",
+    "postcss-simple-vars": "^7.0.1",
     "prettier": "^3.2.4",
     "start-server-and-test": "^2.0.3",
     "style-loader": "^4.0.0",
@@ -41,12 +46,16 @@
     "webpack-cli": ">=5.1.4"
   },
   "dependencies": {
+    "@mantine/core": "^7.10.1",
+    "@mantine/hooks": "^7.10.1",
+    "@tabler/icons-react": "^3.5.0",
     "dayjs": "^1.11.10",
     "prop-types": ">=15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-infinite-scroll-component": ">=6.1.0",
-    "react-router-dom": "^6.23.1"
+    "react-router-dom": "^6.23.1",
+    "style-loader": "^4.0.0"
   },
   "engines": {
     "node": ">=20.0.0"
