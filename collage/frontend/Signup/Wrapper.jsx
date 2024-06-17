@@ -22,7 +22,7 @@ const Signup = () => {
   const titleTexts = ['Hey there!', 'Glad to see you here!', 'Get excited!', 'Last step! (optional)'];
   const buttonTexts = ['Next step', 'Keep going', 'Almost there', 'Start Collage'];
   return <div className="wrapper">
-    <div className="collageTitle">   
+    <div className="collageTitle">
         <Title order={1}>Collage</Title>
     </div>
     <div className="wrapperBox">
@@ -48,10 +48,10 @@ const Signup = () => {
         <div className="wrapperFooter">
             <button className="bottomButton">{buttonTexts[currPage]}</button>
             <br/>
-            <p className="bottomText">Already have an account? <a>Log in</a></p>
+            <p className="bottomText">Already have an account? <a href="/login">Log in</a></p>
         </div>
     </div>
-    
+
   </div>
 };
 

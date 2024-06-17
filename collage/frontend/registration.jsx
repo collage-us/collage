@@ -8,6 +8,7 @@ import About from './About';
 import Mission from './Mission';
 import Support from './Support';
 import Signup from './Signup/Wrapper';
+import Login from './Login/Wrapper';
 
 export default function Registration() {
   return (
@@ -20,6 +21,7 @@ export default function Registration() {
             <Route path="/about" element={<About />} />
             <Route path="/mission" element={<Mission />} />
             <Route path="/support" element={<Support />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
           </Routes>
         </div>
