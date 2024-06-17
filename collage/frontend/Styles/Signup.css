@@ -6,6 +6,14 @@
   width: 100vw;
 }
 
+.wrapper-login {
+  background-color: #FFF1D4;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+}
+
 .collageTitle {
   width: 100vw;
   padding-top: 2.5%;
