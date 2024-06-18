@@ -7,7 +7,7 @@
 }
 
 .wrapper-login {
-  background-color: #FFF1D4;
+  background-color: #fff1d4;
   align-items: center;
   text-align: center;
   height: 100vh;
@@ -121,6 +121,7 @@
 
 .bottomText a {
   text-decoration: underline;
+  color: #5d5d5d;
 }
 
 .bottomText a:hover {
@@ -133,4 +134,29 @@
   margin: 0;
   color: gray;
   line-height: 15px;
+}
+
+.dropDownLine {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropDown1 {
+  width: 49%;
+  margin-left: 0;
+}
+
+.dropDown2 {
+  width: 49%;
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.dropZone {
+  margin: 0;
+}
+
+.dropZone h4 {
+  font-weight: normal;
+  margin: 0;
 }

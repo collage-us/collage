@@ -3,6 +3,7 @@ import {createTheme, MantineProvider, rem} from '@mantine/core';
 import { createRoot } from "react-dom/client";
 import Registration from "./registration";
 import '@mantine/core/styles.css';
+import '@mantine/dropzone/styles.css';
 
 
 // Create a root
