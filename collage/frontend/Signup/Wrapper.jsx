@@ -8,16 +8,20 @@ import Signup3 from './Signup-3';
 import Signup4 from './Signup-4';
 import '../Styles/Signup.css';
 
+function HandleNext(e) {
+    e.preventDefault();
+}
+
 const Signup = () => {
   const [currPage, setCurrPage] = useState(0);
   const [firstName, setFirstName] = useState('');
-  const [lastName, setlastName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [major, setMajor] = useState('');
-  const [startYear, setStartYear] = useState('');
-  const [gradYear, setGradYear] = useState('');
+  const [startYear, setStartYear] = useState(2020);
+  const [gradYear, setGradYear] = useState(2024);
   const [validEntries, setValidEntries] = useState(false); //should be set to true when the states of the current page are valid
   const titleTexts = ['Hey there!', 'Glad to see you here!', 'Get excited!', 'Last step! (optional)'];
   const buttonTexts = ['Next step', 'Keep going', 'Almost there', 'Start Collage'];
@@ -40,13 +44,13 @@ const Signup = () => {
         </div>
         <div className="wrapperTitle"><Title order={2}>{titleTexts[currPage]}</Title></div>
         <div className="wrapperContent">
-        {currPage == 0 && <Signup1/>}
-        {currPage == 1 && <Signup2/>}
-        {currPage == 2 && <Signup3/>}
+        {currPage == 0 && <Signup1 first={firstName} setFirst={setFirstName} last={lastName} setLast={setLastName} valid={validEntries} setValid={setValidEntries}/>}
+        {currPage == 1 && <Signup2 email={email} setEmail={setEmail} password={password} setPassword={setPassword} confirmPassword={confirmPassword} setConfirmPassword={setConfirmPassword} valid={validEntries} setValid={setValidEntries}/>}
+        {currPage == 2 && <Signup3 major={major} setMajor={setMajor} startYear={startYear} setStartYear={setStartYear} gradYear={gradYear} setGradYear={setGradYear} valid={validEntries} setValid={setValidEntries}/>}
         {currPage == 3 && <Signup4/>}
         </div>
         <div className="wrapperFooter">
-            <button className="bottomButton">{buttonTexts[currPage]}</button>
+            <button onClick={() => (setCurrPage(currPage+1))} className="bottomButton">{buttonTexts[currPage]}</button>
             <br/>
             <p className="bottomText">Already have an account? <a href="/login">Log in</a></p>
         </div>

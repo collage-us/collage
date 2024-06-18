@@ -2,9 +2,9 @@ import React from 'react';
 import { TextInput, PasswordInput } from '@mantine/core';
 import '../Styles/Signup.css';
 
-const Signup2 = () => {
+const Signup2 = ({email, setEmail, password, setPassword, confirmPassword, setConfirmPassword, valid, setValid}) => {
   return <div>
-    <TextInput required label="Come up with a good password!" placeholder="Email (.edu email only)" size="lg"
+    <TextInput  value={email} onChange={(e) => setEmail(e.currentTarget.value)} required label="Come up with a good password!" placeholder="Email (.edu email only)" size="lg"
                 styles={
                   {
                     label: {fontSize: 24, textAlign: 'left', alignContent: 'left'},
@@ -12,7 +12,7 @@ const Signup2 = () => {
                   }
                 }/>
       <br/>
-      <PasswordInput placeholder="Password" size="lg"
+      <PasswordInput value={password} onChange={(e) => setPassword(e.currentTarget.value)} placeholder="Password" size="lg"
         styles={
           {
             label: {fontSize: 24, textAlign: 'left', alignContent: 'left'},
@@ -20,7 +20,7 @@ const Signup2 = () => {
           }
         }/>
       <br/>
-      <PasswordInput placeholder="Re-enter Password" size="lg" 
+      <PasswordInput value={confirmPassword} onChange={(e) => setConfirmPassword(e.currentTarget.value)} placeholder="Re-enter Password" size="lg" 
         styles={
           {
             label: {fontSize: 24, textAlign: 'left', alignContent: 'left'},
@@ -28,7 +28,7 @@ const Signup2 = () => {
           }
         }/>
       <br/>
-      <p class="passwordText">
+      <p className="passwordText">
         • At least 8 characters
         <br/>
         • One letter and one number
