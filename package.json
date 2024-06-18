@@ -45,10 +45,16 @@
     "webpack-cli": ">=5.1.4"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@mantine/core": "^7.10.1",
     "@mantine/dropzone": "^7.10.2",
     "@mantine/hooks": "^7.10.1",
     "@tabler/icons-react": "^3.5.0",
+=======
+    "@mantine/core": "^7.10.2",
+    "@mantine/hooks": "^7.10.2",
+    "@tabler/icons-react": "^3.6.0",
+>>>>>>> 627c832 (hmm)
     "dayjs": "^1.11.10",
     "prop-types": ">=15.8.1",
     "react": "^18.2.0",
