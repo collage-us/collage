@@ -1,0 +1,83 @@
+.landing-page-box{
+  position: relative;
+  width: 70vw;
+  max-width: 100%;
+}
+
+.landing-page-header, .landing-page-text{
+  position: absolute;
+  z-index: 2;
+}
+
+.landing-page-header{
+  position: absolute;
+  top: 27%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+
+.landing-page-text{
+  position: absolute;
+  top: 64%;
+  left: 23%;
+  transform: translate(-50%, -50%);
+}
+
+.schedule-image{
+  position: absolute;
+  width: 10vw;
+  height: auto;
+  max-width: 100%;
+  top: 5%;
+  left: 54%;
+  z-index: 2;
+}
+
+.signup-container{
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  grid-column-gap: 5px;
+  align-items: center;
+  position: absolute;
+  width: 20vw;
+  height: auto;
+  max-width: 100%;
+  top: 68%;
+  left: 61%;
+  z-index: 2;
+}
+
+.signup-text{
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+.signup-input{
+  grid-column: 1 / 2;
+  border-radius: 20px;
+  border: none;
+}
+
+.signup-button{
+  grid-column: 2 / 3;
+  padding: 5px 20px 5px 20px;
+  background-color: #8DADFF;
+  text-decoration: none;
+  color: black;
+  border-radius: 5px;
+}
+
+.signup-button:hover{
+  background-color: #FF7C7C;
+  color: white;
+  transition: 0.4s;
+}
+
+.main-background-image{
+  width: 70vw;
+  height: auto;
+  max-width: 100%;
+  z-index: 1;
+}

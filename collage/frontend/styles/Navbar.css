@@ -17,10 +17,41 @@ nav ul li {
 
 .logo{
   margin-right: 40px;
+  margin-left: 5px;
 }
 
-.link-1, .link-2, .link-3, .link-4, .link-5{
-  margin-right: 50px;
+.link-1, .link-2, .link-3{
+  margin-right: 5%;
+}
+
+.link-4{
+  position: absolute;
+  right: 200px;
+}
+
+.link-5{
+  position: absolute;
+  right: 30px;
+}
+
+.login{
+  background-color: #F3F3F3;
+  padding: 8px 50px 8px 50px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.signup{
+  background-color: #8DADFF;
+  padding: 8px 50px 8px 50px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.login:hover, .signup:hover{
+  background-color: #FF7C7C;
+  color: white;
+  transition: 0.4s;
 }
 
 nav ul li:first-child {
@@ -59,3 +90,4 @@ nav ul li a {
   transform: scaleX(1);
   transform-origin:bottom left;
 }
+
