@@ -13,7 +13,7 @@ const root = createRoot(document.getElementById("reactEntry"));
 // Insert the post component into the DOM
 root.render(
   <MantineProvider theme={{
-    fontFamily: 'Judson'}}>
+    fontFamily: 'DM Sans'}}>
     <Registration/>
   </MantineProvider>
 );

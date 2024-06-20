@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Title, Button, Group } from '@mantine/core';
 import Navbar from './Navbar';
 import Home from './Landing/Home';
-import About from './Landing/About';
-import ForStudents from './Landing/ForStudents';
-import Support from './Landing/Support';
+import About from './About';
+import ForStudents from './ForStudents';
+import Support from './Support';
 import Signup from './Signup/Wrapper';
 import Login from './Login/Wrapper';
 

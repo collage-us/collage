@@ -1,3 +1,14 @@
+.home-container{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.section{
+  height: 100vh;
+  width: 100%;
+}
+
 .landing-page-box{
   position: relative;
   width: 70vw;
@@ -80,4 +91,52 @@
   height: auto;
   max-width: 100%;
   z-index: 1;
+}
+
+.main-header{
+  position: absolute;
+  width: 100vw;
+  height: auto;
+  max-width: 100%;
+  top: 43%;
+  left: 20%;
+  z-index: 2;
+}
+
+.green-text{
+  position: absolute;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  top: 5%;
+  left: 39%;
+  z-index: 2;
+}
+
+.blue-text{
+  position: absolute;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  top: 66%;
+  left: 12%;
+  z-index: 2;
+}
+
+.green-logo{
+  position: absolute;
+  height: auto;
+  max-width: 100%;
+  top: 13%;
+  left: 14%;
+  z-index: 2;
+}
+
+.blue-logo{
+  position: absolute;
+  height: auto;
+  max-width: 100%;
+  top: 64%;
+  left: 76%;
+  z-index: 2;
 }
