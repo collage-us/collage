@@ -30,6 +30,7 @@
     "eslint-plugin-jsx-a11y": ">=6.8.0",
     "eslint-plugin-react": ">=7.33.2",
     "eslint-plugin-react-hooks": ">=4.6.0",
+    "file-loader": "^6.2.0",
     "postcss": "^8.4.38",
     "postcss-loader": "^8.1.1",
     "postcss-preset-env": "^9.5.14",
@@ -45,10 +46,10 @@
     "webpack-cli": ">=5.1.4"
   },
   "dependencies": {
-    "@mantine/core": "^7.10.1",
+    "@mantine/core": "^7.10.2",
     "@mantine/dropzone": "^7.10.2",
-    "@mantine/hooks": "^7.10.1",
-    "@tabler/icons-react": "^3.5.0",
+    "@mantine/hooks": "^7.10.2",
+    "@tabler/icons-react": "^3.6.0",
     "dayjs": "^1.11.10",
     "prop-types": ">=15.8.1",
     "react": "^18.2.0",
