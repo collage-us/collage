@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import lastBackground from '../images/last-background.png';
 import logo from '../images/collage-logo.png';
 import '../styles/Home.css';
-import Signup1 from '../Signup/Signup-1';
 
 const Home4 = () => {
   return <>

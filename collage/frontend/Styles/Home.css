@@ -95,7 +95,7 @@
 
 .main-header{
   position: absolute;
-  width: 100vw;
+  width: auto;
   height: auto;
   max-width: 100%;
   top: 43%;

@@ -7,7 +7,7 @@ import blueLogo from '../images/blue-logo.png';
 
 const Home2 = () => {
   return <>
-    <Center style={{ height: '85vh' }}>
+    <Center style={{ height: '75vh' }}>
       <Box className="landing-page-box">
         <Image radius="md" src={background2} className="main-background-image"/>
         <Image radius="md" style={{ width: '8vw' }} src={greenLogo} className="green-logo"/>
