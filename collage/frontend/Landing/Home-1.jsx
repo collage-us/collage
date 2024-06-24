@@ -9,8 +9,8 @@ const Home1 = () => {
   return <>
     <Center style={{ height: '85vh' }}>
       <Box className="landing-page-box">
-        <Text style={{ fontSize: '2.7vw' }} fw={700} className="landing-page-header">Plan Your Perfect <br /> Class Schedule with Ease</Text>
-        <Text style={{ fontSize: '2vw' }} className="landing-page-text">Collage is college redefined. <br/> <br/> Personalize your education, <br/> coordinate with friends, and <br/> explore new opportunities on our <br/> AI-powered platform.</Text>
+        <Text style={{ fontSize: '2.7vw' }} fw={700} className="landing-page-header">Plan Your Perfect<br/>Class Schedule with Ease</Text>
+        <Text style={{ fontSize: '2vw' }} className="landing-page-text">Collage is college redefined.<br/><br/>Personalize your education,<br/>coordinate with friends, and<br/>explore new opportunities on our<br/>AI-powered platform.</Text>
         <Image style={{ width: '30vw'}} src={schedule} className="schedule-image"/>
         
         <div className="signup-container">

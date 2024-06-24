@@ -1,11 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Image } from '@mantine/core';
 import './styles/Navbar.css';
 import logo from './images/collage-logo.png';
 
 
 const Navbar = () => {
+  const location = useLocation();
+
+  const hiddenPaths = ['/login', '/signup'];
+
+  if(hiddenPaths.includes(location.pathname)){
+    return null;
+  }
+
   return (
     <nav>
       <ul>

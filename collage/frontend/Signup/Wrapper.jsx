@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 import { Title, Button, ActionIcon } from '@mantine/core';
 import { IconCircleChevronRight, IconCircleChevronLeft } from '@tabler/icons-react';
 import '@mantine/core/styles/Button.css'
@@ -27,7 +28,7 @@ const Signup = () => {
   const buttonTexts = ['Next step', 'Keep going', 'Almost there', 'Start Collage'];
   return <div className="wrapper">
     <div className="collageTitle">
-        <Title order={1}>Collage</Title>
+        <Link to="/"><Title order={1}>Collage</Title></Link>
     </div>
     <div className="wrapperBox">
         <div className="wrapperNav">
@@ -52,7 +53,7 @@ const Signup = () => {
         <div className="wrapperFooter">
             <button onClick={() => (setCurrPage(currPage+1))} className="bottomButton">{buttonTexts[currPage]}</button>
             <br/>
-            <p className="bottomText">Already have an account? <a href="/login">Log in</a></p>
+            <p className="bottomText">Already have an account? <Link to="/login">Log in</Link></p>
         </div>
     </div>
 

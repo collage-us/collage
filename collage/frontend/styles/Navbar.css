@@ -1,5 +1,10 @@
 nav{
   padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 1000;
 }
 
 nav ul {
@@ -17,7 +22,7 @@ nav ul li {
 
 .logo{
   margin-right: 40px;
-  margin-left: 5px;
+  margin-left: 2px;
 }
 
 .link-1, .link-2, .link-3{

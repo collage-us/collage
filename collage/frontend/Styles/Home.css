@@ -95,7 +95,7 @@
 
 .main-header{
   position: absolute;
-  width: 100vw;
+  width: auto;
   height: auto;
   max-width: 100%;
   top: 43%;
@@ -139,4 +139,92 @@
   top: 64%;
   left: 76%;
   z-index: 2;
+}
+
+.end-background{
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-image{
+  position: absolute;
+  height: auto;
+  max-width: 100%;
+  top: 23%;
+  left: 49%;
+  z-index: 3;
+}
+
+.end-title{
+  position: absolute;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  top: 28%;
+  left: 42.5%;
+  text-align: center;
+  z-index: 3;
+}
+
+.first-name-text-box{
+  position: absolute;
+  width: 18vw;
+  max-width: 100%;
+  top: 43%;
+  left: 41.2%;
+  z-index: 3;
+}
+
+.last-name-text-box{
+  position: absolute;
+  width: 18vw;
+  max-width: 100%;
+  top: 51%;
+  left: 41.2%;
+  z-index: 3;
+}
+
+.get-started-link{
+  position: absolute;
+  width: 18vw;
+  height: 6vh;
+  max-width: 100%;
+  top: 67%;
+  left: 41.2%;
+  background-color: #B8FFC8;
+  text-align: center;
+  line-height: 6vh;
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+  border-radius: 10px;
+  z-index: 3;
+}
+
+.get-started-link:hover{
+  background-color: #FF7C7C;
+  color: white;
+  transition: 0.4s;
+}
+
+.log-in-link{
+  position: absolute;
+  width: 18vw;
+  height: 6vh;
+  max-width: 100%;
+  top: 73%;
+  left: 41.2%;
+  text-align: center;
+  line-height: 6vh;
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  border-radius: 10px;
+  z-index: 3;
+}
+
+.log-in-link:hover{
+  text-decoration: underline;
+  text-decoration-color: black;
+  text-decoration-thickness: 2px;
 }
