@@ -1,11 +1,15 @@
 arrow==1.3.0
 astroid==3.0.2
+Authlib==1.3.1
 beautifulsoup4==4.12.3
 blinker==1.7.0
 bs4==0.0.2
 certifi==2024.2.2
+cffi==1.16.0
 charset-normalizer==3.3.2
 click==8.1.7
+-e git+https://github.com/zichenzhang04/collage.git@60a918acd7e475e22948ddbb1a097018a1987ddd#egg=collage
+cryptography==42.0.8
 dill==0.3.8
 Flask==3.0.1
 idna==3.6
@@ -20,6 +24,7 @@ packaging==23.2
 platformdirs==4.2.0
 pluggy==1.4.0
 pycodestyle==2.11.1
+pycparser==2.22
 pydocstyle==6.3.0
 pylint==3.0.3
 pytest==8.0.0
