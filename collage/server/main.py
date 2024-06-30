@@ -1,7 +1,8 @@
 import flask
 import collage
-from collage.server.auth import auth
+# from collage.server.auth import auth
 from authlib.integrations.flask_client import OAuth
+from collage.server.recommend import recommend_classes
 
 
 # OAuth setup
@@ -25,17 +26,9 @@ def handle_accounts():
     """Handles login/logout, creating/deleting/editing accounts, and updating passwords."""
     main_url = "/"
     form = flask.request.form
-
     op = form.get("operation")
-    # email_input = form.get("email")
-    # password_input = form.get("password")
-    # connection = collage.model.get_db()
 
     if op == "login":
-        # if auth(connection, email_input, password_input):  # authentication is successful
-        #     return flask.redirect(main_url)
-        # else:
-        #     flask.abort(403)
         try:
             token = google.authorize_access_token()
             resp = google.get('userinfo')
@@ -48,3 +41,21 @@ def handle_accounts():
     elif op == "logout":
         flask.session.pop('email', None)
         return flask.redirect(main_url)
+
+
+@collage.app.route('/api/catalog/', methods=['POST'])
+def handle_catalog():
+    # connection = collage.model.get_db()  # open db
+
+    # select_all_classes_query = """
+    #     SELECT *
+    #     FROM classes
+    # """
+
+    # with connection.cursor() as cursor:
+    #     cursor.execute(select_all_classes_query)
+    #     classes = cursor.fetchall()
+    data = flask.request.get_json()
+    user_id = data['user_id']
+    recommendations = recommend_classes(user_id)
+    return flask.jsonify(recommendations.to_dict(orient='records'))
