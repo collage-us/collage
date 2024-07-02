@@ -34,9 +34,14 @@ def handle_accounts():
             resp = google.get('userinfo')
             user_info = resp.json()
             flask.session['email'] = user_info['email']
-            return flask.redirect('/')
+            context = {
+                "status": "success"
+            }
         except Exception as e:
-            flask.abort(403)
+            context = {
+                "status": "failure"
+            }
+        return flask.jsonify(**context)
 
     elif op == "logout":
         flask.session.pop('email', None)
