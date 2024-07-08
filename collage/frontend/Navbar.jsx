@@ -4,11 +4,26 @@ import { Image } from '@mantine/core';
 import './styles/Navbar.css';
 import logo from './images/collage-logo.png';
 
-
-const Navbar = () => {
+const Navbar = ({loggedIn, setLoggedIn, registered, setRegistered}) => {
   const location = useLocation();
-
   const hiddenPaths = ['/login', '/signup'];
+
+  const handleLogout = async () => {
+    var response = await fetch("/logout/", {
+      method: "POST",
+      credentials: "include",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json"},
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      if(!data.registered){
+        setLoggedIn(false);
+        setRegistered(false);
+      } 
+    })
+  };
 
   if(hiddenPaths.includes(location.pathname)){
     return null;
@@ -34,12 +49,15 @@ const Navbar = () => {
         <li className="link-3">
           <Link to="/support" className="support">Support</Link>
         </li>
-        <li className='link-4'>
+        {!loggedIn && <li className='link-4'>
           <Link to="/login" className="login">Log in</Link>
-        </li>
-        <li className='link-5'>
+        </li>}
+        {!loggedIn && <li className='link-5'>
           <Link to="/signup" className="signup">Sign up</Link>
-        </li>
+        </li>}
+        {loggedIn && <li className='link-4'>
+          <button className="login" onClick={handleLogout}>Log Out</button>
+        </li>}
       </ul>
     </nav>
   );

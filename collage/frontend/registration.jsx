@@ -11,18 +11,20 @@ import Signup from './Signup/Wrapper';
 import Login from './Login/Wrapper';
 
 export default function Registration() {
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [registered, setRegistered] = useState(false);
   return (
     <>
       <Router>
         <div>
-          <Navbar />
+          <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} setRegistered={setRegistered}/>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/forstudents" element={<ForStudents />} />
             <Route path="/support" element={<Support />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login setLoggedIn={setLoggedIn} setRegistered={setRegistered}/>} />
+            <Route path="/signup" element={<Signup setLoggedIn={setLoggedIn} setRegistered={setRegistered}/>} />
           </Routes>
         </div>
       </Router>
