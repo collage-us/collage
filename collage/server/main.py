@@ -66,7 +66,7 @@ def handle_catalog():
     return flask.jsonify(recommendations.to_dict(orient='records'))
 
 
-@collage.app.route('/api/user_stats/<int:user_id>', methods=['GET'])
+@collage.app.route('/api/student/<int:user_id>', methods=['GET'])
 def get_user_stats(user_id):
     op = flask.request.args.get('operation')
     connection = collage.model.get_db()
@@ -97,7 +97,7 @@ def get_user_stats(user_id):
                 'view_count': view_count
             }
         
-        elif operation == 'student_info':
+        elif op == 'student_info':
             with connection.cursor(dictionary=True) as cursor:
                 student_info_query = """
                     SELECT graduation_year, start_year
