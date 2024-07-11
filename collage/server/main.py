@@ -50,19 +50,18 @@ def handle_accounts():
 
 @collage.app.route('/api/catalog/', methods=['POST'])
 def handle_catalog():
-    # connection = collage.model.get_db()  # open db
-
-    # select_all_classes_query = """
-    #     SELECT *
-    #     FROM classes
-    # """
-
-    # with connection.cursor() as cursor:
-    #     cursor.execute(select_all_classes_query)
-    #     classes = cursor.fetchall()
+    connection = collage.model.get_db()  # open db
+    # assume JSON data format is {'user_id": INT}
     data = flask.request.get_json()
     user_id = data['user_id']
-    recommendations = recommend_classes(user_id)
+    recommendations = recommend_classes(connection, user_id)
+
+    # the user does not exist
+    if recommendations == None:
+        return flask.jsonify(
+            {"status": "failure"}
+        )
+
     return flask.jsonify(recommendations.to_dict(orient='records'))
 
 
@@ -96,7 +95,7 @@ def get_user_stats(user_id):
                 'follower_count': follower_count,
                 'view_count': view_count
             }
-        
+
         elif op == 'student_info':
             with connection.cursor(dictionary=True) as cursor:
                 student_info_query = """
@@ -122,7 +121,7 @@ def get_user_stats(user_id):
                 """
                 cursor.execute(major_credits_query, (user_id,))
                 credits_required = cursor.fetchone()['credits_required']
-            
+
             response = {
                 'graduation_year': student_info['graduation_year'],
                 'registration_term': student_info['start_year'],
@@ -134,9 +133,9 @@ def get_user_stats(user_id):
             response = {'error': 'Invalid operation specified'}
 
         return flask.jsonify(response)
-    
+
     except Exception as e:
         return flask.jsonify({'error': str(e)}), 500
-    
+
     finally:
         connection.close()

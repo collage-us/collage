@@ -8,6 +8,7 @@ CREATE TABLE users (
     graduation_year INT,
     enrollment_date DATE,
     credits_completed INT,
+    keywords TEXT,
     major VARCHAR(255),
     last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -31,3 +32,20 @@ CREATE TABLE instructors(
   department VARCHAR(256) NOT NULL,
   email VARCHAR(256) UNIQUE
 );
+
+CREATE TABLE ratings(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT,
+  course_id INT,
+  rating INT, -- a scale from 1 to 5, 5 being the best
+  FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+  FOREIGN KEY (course_id) REFERENCES courses(course_id) ON DELETE CASCADE,
+)
+
+CREATE TABLE connections(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id_1 INT, -- user_id_1 follows user_id_2
+  user_id_2 INT,
+  FOREIGN KEY (user_id_1) REFERENCES users(user_id) ON DELETE CASCADE,
+  FOREIGN KEY (user_id_2) REFERENCES users(user_id) ON DELETE CASCADE,
+)
