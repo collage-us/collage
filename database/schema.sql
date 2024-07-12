@@ -33,13 +33,22 @@ CREATE TABLE instructors(
   email VARCHAR(256) UNIQUE
 );
 
-CREATE TABLE ratings(
+CREATE TABLE course_ratings(
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id INT,
   course_id INT,
   rating INT, -- a scale from 1 to 5, 5 being the best
   FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
   FOREIGN KEY (course_id) REFERENCES courses(course_id) ON DELETE CASCADE,
+)
+
+CREATE TABLE instructor_ratings(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT,
+  instructor_id INT,
+  rating INT, -- a scale from 1 to 5, 5 being the best
+  FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+  FOREIGN KEY (instructor_id) REFERENCES instructors(instructor_id) ON DELETE CASCADE,
 )
 
 CREATE TABLE connections(
