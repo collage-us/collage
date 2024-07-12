@@ -62,6 +62,25 @@ def handle_catalog():
             {"status": "failure"}
         )
 
+    # return the JSON of "a list of dictionaries"
+    """
+    return example:
+        [
+            {
+                "course_id": 101,
+                "course_name": "Introduction to Python"
+            },
+            {
+                "course_id": 102,
+                "course_name": "Data Science with R"
+            },
+            {
+                "course_id": 103,
+                "course_name": "Machine Learning Basics"
+            }
+            ......
+        ]
+    """
     return flask.jsonify(recommendations.to_dict(orient='records'))
 
 

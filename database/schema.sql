@@ -19,11 +19,12 @@ CREATE TABLE courses (
     course_code VARCHAR(50) NOT NULL UNIQUE,
     credit_hours INT NOT NULL,
     location VARCHAR(255),
-    instructor_name VARCHAR(255),
+    instructor_id VARCHAR(255),
     topic_description TEXT,
     course_name VARCHAR(255) NOT NULL,
     course_description TEXT,
-    class_topic VARCHAR(255)
+    class_topic VARCHAR(255),
+    FOREIGN KEY (instructor_id) REFERENCES instructors(instructor_id) ON DELETE CASCADE
 );
 
 CREATE TABLE instructors(
