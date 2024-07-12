@@ -8,7 +8,7 @@ certifi==2024.2.2
 cffi==1.16.0
 charset-normalizer==3.3.2
 click==8.1.7
--e git+https://github.com/zichenzhang04/collage.git@60a918acd7e475e22948ddbb1a097018a1987ddd#egg=collage
+-e git+https://github.com/zichenzhang04/collage.git@ecc0a39a85bba392e120bdd8d301a46660f16a56#egg=collage
 cryptography==42.0.8
 dill==0.3.8
 Flask==3.0.1
@@ -17,10 +17,13 @@ iniconfig==2.0.0
 isort==5.13.2
 itsdangerous==2.1.2
 Jinja2==3.1.3
+joblib==1.4.2
 MarkupSafe==2.1.5
 mccabe==0.7.0
 mysql-connector-python==8.4.0
+numpy==2.0.0
 packaging==23.2
+pandas==2.2.2
 platformdirs==4.2.0
 pluggy==1.4.0
 pycodestyle==2.11.1
@@ -29,11 +32,16 @@ pydocstyle==6.3.0
 pylint==3.0.3
 pytest==8.0.0
 python-dateutil==2.8.2
+pytz==2024.1
 requests==2.31.0
+scikit-learn==1.5.0
+scipy==1.14.0
 six==1.16.0
 snowballstemmer==2.2.0
 soupsieve==2.5
+threadpoolctl==3.5.0
 tomlkit==0.12.3
 types-python-dateutil==2.8.19.20240106
+tzdata==2024.1
 urllib3==2.2.0
 Werkzeug==3.0.1
