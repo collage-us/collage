@@ -98,4 +98,4 @@ def recommend_classes(connection, curr_user_id, num_recommendations=16):
     # Sort and get top recommendations
     top_courses = courses_df.nlargest(num_recommendations, 'final_score')
 
-    return top_courses[['course_id', 'course_name']]
+    return top_courses[['course_id']]

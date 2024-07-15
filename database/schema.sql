@@ -16,14 +16,16 @@ CREATE TABLE users (
 
 CREATE TABLE courses (
     course_id INT PRIMARY KEY AUTO_INCREMENT,
-    course_code VARCHAR(50) NOT NULL UNIQUE,
+    subject_code VARCHAR(50) NOT NULL,
+    catalog_number INT NOT NULL,
     credit_hours INT NOT NULL,
-    location VARCHAR(255),
-    instructor_id VARCHAR(255),
-    topic_description TEXT,
+    location VARCHAR(255) NOT NULL,
+    instructor_id VARCHAR(255) NOT NULL,
+    topic_description TEXT NOT NULL,
     course_name VARCHAR(255) NOT NULL,
-    course_description TEXT,
-    class_topic VARCHAR(255),
+    course_description TEXT NOT NULL,
+    class_topic VARCHAR(255) NOT NULL,
+    ai_img_url VARCHAR(255),
     FOREIGN KEY (instructor_id) REFERENCES instructors(instructor_id) ON DELETE CASCADE
 );
 
