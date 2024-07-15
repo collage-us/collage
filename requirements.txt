@@ -1,3 +1,5 @@
+annotated-types==0.7.0
+anyio==4.4.0
 arrow==1.3.0
 astroid==3.0.2
 Authlib==1.3.1
@@ -8,10 +10,14 @@ certifi==2024.2.2
 cffi==1.16.0
 charset-normalizer==3.3.2
 click==8.1.7
--e git+https://github.com/zichenzhang04/collage.git@ecc0a39a85bba392e120bdd8d301a46660f16a56#egg=collage
+-e git+https://github.com/zichenzhang04/collage.git@214e40512db7ec845d5de41434d3d09983d5e674#egg=collage
 cryptography==42.0.8
 dill==0.3.8
+distro==1.9.0
 Flask==3.0.1
+h11==0.14.0
+httpcore==1.0.5
+httpx==0.27.0
 idna==3.6
 iniconfig==2.0.0
 isort==5.13.2
@@ -22,12 +28,15 @@ MarkupSafe==2.1.5
 mccabe==0.7.0
 mysql-connector-python==8.4.0
 numpy==2.0.0
+openai==1.35.13
 packaging==23.2
 pandas==2.2.2
 platformdirs==4.2.0
 pluggy==1.4.0
 pycodestyle==2.11.1
 pycparser==2.22
+pydantic==2.8.2
+pydantic_core==2.20.1
 pydocstyle==6.3.0
 pylint==3.0.3
 pytest==8.0.0
@@ -37,11 +46,14 @@ requests==2.31.0
 scikit-learn==1.5.0
 scipy==1.14.0
 six==1.16.0
+sniffio==1.3.1
 snowballstemmer==2.2.0
 soupsieve==2.5
 threadpoolctl==3.5.0
 tomlkit==0.12.3
+tqdm==4.66.4
 types-python-dateutil==2.8.19.20240106
+typing_extensions==4.12.2
 tzdata==2024.1
 urllib3==2.2.0
 Werkzeug==3.0.1
