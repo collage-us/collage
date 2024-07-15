@@ -7,7 +7,7 @@ load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
 client = OpenAI(api_key=api_key)
 
-def generate(model, prompt):
+def generate_image(model, prompt):
     response = client.images.generate(
         model=model, # "dall-e-3"
         prompt=prompt,
@@ -21,5 +21,5 @@ def generate(model, prompt):
     return image_url
 
 
-def prompt(course_description, class_topic):
+def format_prompt(course_description, class_topic):
     return f"A college class about {class_topic} with the content of {course_description} "
