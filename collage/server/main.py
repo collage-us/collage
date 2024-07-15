@@ -3,7 +3,7 @@ import collage
 # from collage.server.auth import auth
 from authlib.integrations.flask_client import OAuth
 from collage.server.recommend import recommend_classes
-import dalle
+from collage.server.dalle import generate_image, format_prompt
 
 
 # OAuth setup
@@ -42,11 +42,14 @@ def handle_accounts():
             context = {
                 "status": "failure"
             }
-        return flask.jsonify(**context)
 
     elif op == "logout":
         flask.session.pop('email', None)
-        return flask.redirect(main_url)
+        context = {
+            "status": "success"
+        }
+
+    return flask.jsonify(**context)
 
 
 @collage.app.route('/api/catalog/', methods=['POST'])
@@ -82,8 +85,8 @@ def handle_catalog():
 
         # check whether an AI image has been generated for that course
         if course['ai_img_url'] == None:
-            prompt = dalle.prompt(course['course_description'], course['class_topic'])
-            img_url = dalle.generate(
+            prompt = format_prompt(course['course_description'], course['class_topic'])
+            img_url = generate_image(
                 model="dall-e-3",
                 prompt=prompt
             )
@@ -176,3 +179,9 @@ def get_user_stats(user_id):
 
     finally:
         connection.close()
+
+
+@collage.app.route('/api/test/', methods=['GET'])
+def test():
+    print("yes")
+    return flask.jsonify({"flag": "success"})
