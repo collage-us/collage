@@ -3,6 +3,7 @@ import collage
 # from collage.server.auth import auth
 from authlib.integrations.flask_client import OAuth
 from collage.server.recommend import recommend_classes
+import dalle
 
 
 # OAuth setup
@@ -62,26 +63,43 @@ def handle_catalog():
             {"status": "failure"}
         )
 
+    recommendations = recommendations.to_dict(orient='records')
+
+    for course in recommendations:
+        course_id = course['course_id']
+
+        with connection.cursor(dictionary=True) as cursor:
+            course_info_query = """
+                SELECT subject code, catalog_number,
+                credit_hours, instructor_id, course_name,
+                course_description, class_topic, ai_img_url
+                FROM courses
+                WHERE course_id = %s
+            """
+            cursor.execute(course_info_query, (course_id,))
+            course = cursor.fetchone()
+        course['course_id'] = course_id
+
+        # check whether an AI image has been generated for that course
+        if course['ai_img_url'] == None:
+            prompt = dalle.prompt(course['course_description'], course['class_topic'])
+            img_url = dalle.generate(
+                model="dall-e-3",
+                prompt=prompt
+            )
+            course['ai_img_url'] = img_url
+
+            with connection.cursor(dictionary=True) as cursor:
+                img_query = """
+                    UPDATE courses
+                    SET ai_img_url = %s
+                    WHERE course_id = %s
+                """
+                cursor.execute(img_query, (img_url, course_id))
+                connection.commit()
+
     # return the JSON of "a list of dictionaries"
-    """
-    return example:
-        [
-            {
-                "course_id": 101,
-                "course_name": "Introduction to Python"
-            },
-            {
-                "course_id": 102,
-                "course_name": "Data Science with R"
-            },
-            {
-                "course_id": 103,
-                "course_name": "Machine Learning Basics"
-            }
-            ......
-        ]
-    """
-    return flask.jsonify(recommendations.to_dict(orient='records'))
+    return flask.jsonify(recommendations)
 
 
 @collage.app.route('/api/student/<int:user_id>', methods=['GET'])
