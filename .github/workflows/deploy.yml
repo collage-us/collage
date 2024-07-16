@@ -38,6 +38,7 @@ jobs:
 
     - name: Deploy Flask App
       run: |
+        source env/bin/activate
         flask --app collage --debug run --host 0.0.0.0 --port 8001
       env:
         FLASK_APP: collage
@@ -45,9 +46,3 @@ jobs:
         FLASK_RUN_PORT: 8001
         FLASK_RUN_HOST: 0.0.0.0
         PYTHONUNBUFFERED: 1
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build
