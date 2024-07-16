@@ -8,7 +8,7 @@ import os
 # client = OpenAI(api_key=api_key)
 
 # TODO: for CI/CD
-client = OpenAI()
+client = OpenAI(api_key="")
 
 def generate_image(model, prompt):
     response = client.images.generate(
