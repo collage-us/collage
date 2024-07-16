@@ -12,13 +12,13 @@ const Home1 = () => {
         <Text style={{ fontSize: '2.7vw' }} fw={700} className="landing-page-header">Plan Your Perfect<br/>Class Schedule with Ease</Text>
         <Text style={{ fontSize: '2vw' }} className="landing-page-text">Collage is college redefined.<br/><br/>Personalize your education,<br/>coordinate with friends, and<br/>explore new opportunities on our<br/>AI-powered platform.</Text>
         <Image style={{ width: '30vw'}} src={schedule} className="schedule-image"/>
-        
+
         <div className="signup-container">
           <Text style={{ fontSize: '2.5vw' }} fw={700} className="signup-text">Get Started!</Text>
           <TextInput placeholder="Your .edu email here" className="signup-input"/>
           <Link to="/signup" className="signup-button">Sign up</Link>
         </div>
-        
+
         <Image radius="md" src={mainBackground} className="main-background-image"/>
       </Box>
     </Center>

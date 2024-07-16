@@ -38,7 +38,7 @@ const Home4 = () => {
           }/>
         <Link to="/signup" className="get-started-link">Get Started</Link>
         <Link to="/login" className="log-in-link">Already a member? Log In</Link>
-        
+
       </div>
       <div
         style={{
@@ -52,7 +52,7 @@ const Home4 = () => {
           zIndex: '2',
         }}
       ></div>
-      
+
     </Box>
   </>
 };
