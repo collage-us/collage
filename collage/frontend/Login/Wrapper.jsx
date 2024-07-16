@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Title } from '@mantine/core';
 import Login1 from './Login-1';
-import '../Styles/Signup.css';
+import '../CSS/Signup.css';
 
 const Login = () => {
   return (

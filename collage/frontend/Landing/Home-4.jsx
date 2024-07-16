@@ -3,7 +3,7 @@ import { Center, Image , Text, Box, TextInput, Button, Title } from '@mantine/co
 import { Link } from 'react-router-dom';
 import lastBackground from '../images/last-background.png';
 import logo from '../images/collage-logo.png';
-import '../styles/Home.css';
+import '../CSS/Home.css';
 
 const Home4 = () => {
   return <>
@@ -38,7 +38,7 @@ const Home4 = () => {
           }/>
         <Link to="/signup" className="get-started-link">Get Started</Link>
         <Link to="/login" className="log-in-link">Already a member? Log In</Link>
-        
+
       </div>
       <div
         style={{
@@ -52,7 +52,7 @@ const Home4 = () => {
           zIndex: '2',
         }}
       ></div>
-      
+
     </Box>
   </>
 };

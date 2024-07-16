@@ -7,7 +7,7 @@ import Signup1 from './Signup-1';
 import Signup2 from './Signup-2';
 import Signup3 from './Signup-3';
 import Signup4 from './Signup-4';
-import '../Styles/Signup.css';
+import '../CSS/Signup.css';
 
 function HandleNext(e) {
     e.preventDefault();
