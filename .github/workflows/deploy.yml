@@ -31,12 +31,7 @@ jobs:
         pip install -e .
 
     - name: Install Node.js dependencies
-      run: |
-        npm ci
-        npm install @mantine/core @mantine/hooks
-        npm install --save-dev postcss postcss-preset-mantine postcss-simple-vars
-        npm install postcss-preset-env --save-dev
-        npm install  @tabler/icons-react
+      run: npm ci
 
     - name: Build React App
       run: npx webpack
