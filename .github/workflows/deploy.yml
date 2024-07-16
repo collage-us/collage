@@ -46,3 +46,10 @@ jobs:
         FLASK_RUN_PORT: 8001
         FLASK_RUN_HOST: 0.0.0.0
         PYTHONUNBUFFERED: 1
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build
