@@ -3,7 +3,7 @@ import { Center, Image , Text, Box, TextInput, Button } from '@mantine/core';
 import { Link } from 'react-router-dom';
 import mainBackground from '../images/main-background.png';
 import schedule from '../images/schedule-image.png';
-import '../styles/Home.css';
+import '../CSS/Home.css';
 
 const Home1 = () => {
   return <>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { TextInput, PasswordInput } from '@mantine/core';
-import '../Styles/Signup.css';
+import '../CSS/Signup.css';
 
 const Signup2 = ({email, setEmail, password, setPassword, confirmPassword, setConfirmPassword, valid, setValid}) => {
   return <div>
@@ -20,7 +20,7 @@ const Signup2 = ({email, setEmail, password, setPassword, confirmPassword, setCo
           }
         }/>
       <br/>
-      <PasswordInput value={confirmPassword} onChange={(e) => setConfirmPassword(e.currentTarget.value)} placeholder="Re-enter Password" size="lg" 
+      <PasswordInput value={confirmPassword} onChange={(e) => setConfirmPassword(e.currentTarget.value)} placeholder="Re-enter Password" size="lg"
         styles={
           {
             label: {fontSize: 24, textAlign: 'left', alignContent: 'left'},

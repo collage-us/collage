@@ -1,6 +1,6 @@
 import React from 'react';
 import { Center, Image , Text, Box, TextInput, Button } from '@mantine/core';
-import '../styles/Home.css';
+import '../CSS/Home.css';
 import background2 from '../images/background-2.png';
 import greenLogo from '../images/green-logo.png';
 import blueLogo from '../images/blue-logo.png';

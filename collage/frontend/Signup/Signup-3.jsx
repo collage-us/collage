@@ -1,6 +1,6 @@
 import React from 'react';
 import { TextInput, NumberInput } from '@mantine/core';
-import '../Styles/Signup.css';
+import '../CSS/Signup.css';
 
 const Signup3 = ({major, setMajor, startYear, setStartYear, gradYear, setGradYear, valid, setValid}) => {
   return <div>
@@ -14,7 +14,7 @@ const Signup3 = ({major, setMajor, startYear, setStartYear, gradYear, setGradYea
       <br/>
       <div className='dropDownLine'>
         <div className='dropDown1'>
-        <NumberInput value={startYear} onChange={(e) => setStartYear(e.currentTarget.value)} label="Start year" size="lg" 
+        <NumberInput value={startYear} onChange={(e) => setStartYear(e.currentTarget.value)} label="Start year" size="lg"
                   styles={
                     {
                       label: {fontSize: 20, textAlign: 'left', alignContent: 'left', color: '#5d5d5d'},

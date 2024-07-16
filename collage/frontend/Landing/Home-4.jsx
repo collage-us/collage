@@ -3,7 +3,7 @@ import { Center, Image , Text, Box, TextInput, Button, Title } from '@mantine/co
 import { Link } from 'react-router-dom';
 import lastBackground from '../images/last-background.png';
 import logo from '../images/collage-logo.png';
-import '../styles/Home.css';
+import '../CSS/Home.css';
 
 const Home4 = () => {
   return <>

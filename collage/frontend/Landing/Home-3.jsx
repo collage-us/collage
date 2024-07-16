@@ -1,7 +1,7 @@
 import React from 'react';
 import { Center, Image , Text, Box, TextInput, Button } from '@mantine/core';
 import background3 from '../images/background-3.png';
-import '../styles/Home.css';
+import '../CSS/Home.css';
 
 const Home3 = () => {
   return <>
