@@ -1,9 +1,10 @@
 import flask
 import collage
-# from collage.server.auth import auth
+import io
 from authlib.integrations.flask_client import OAuth
 from collage.server.recommend import recommend_classes
 from collage.server.dalle import generate_image, format_prompt
+from helper import parse_resume
 
 
 # OAuth setup
@@ -183,5 +184,21 @@ def get_user_stats(user_id):
 
 @collage.app.route('/api/test/', methods=['GET'])
 def test():
-    print("yes")
+    """A test endpoint for checking whether backend Python code can be compiled."""
     return flask.jsonify({"flag": "success"})
+
+
+@collage.app.route('/upload/resume/', methods=['POST'])
+def upload_file():
+    if 'file' not in flask.request.files:
+        return flask.jsonify({'error': 'No file part'}), 400
+
+    file = flask.request.files['file']
+    if file.filename == '':
+        return flask.jsonify({'error': 'No selected file'}), 400
+
+    if file:
+        file_stream = io.BytesIO(file.read())
+        keywords_string = parse_resume(file_stream)
+        # TODO: add query that updates the users table's keywords column
+        return flask.jsonify({'success': 'keywords extracted'})
