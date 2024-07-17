@@ -35,7 +35,10 @@
   </a>
 <h3 align="center">Collage</h3>
   <p align="center">
-    A Platform for Personalized Course Planning and AI Academic Advising
+    A Platform for Personalized Course Planning and AI Academic Advising,
+  </p>
+  <p align="center">
+    Made by College Students, for College Students
   </p>
 </div>
 
@@ -67,6 +70,13 @@
 <!-- ABOUT THE PROJECT -->
 ## About the Platform
 
+### Platform Demo
+
+<div align="center">
+  <img src="images/catalog_demo.png" alt="Demo 1" width="45%" style="display: inline-block;">
+  <img src="images/login_demo.png" alt="Demo 2" width="45%" style="display: inline-block;">
+</div>
+
 ### Collage is College Redefined
 Higher education is at a crossroads. The traditional college class is becoming increasingly obsolete as we’ve witnessed lower attendance and lower grades, and the amount of students using generative AIs like ChatGPT to complete their work has skyrocketed. The way college operates is rapidly evolving and that is largely due to one key development in consumer demand: personalization.
 
@@ -83,13 +93,6 @@ Courses best fit to enhance your college experience will be recommended to you t
 Our custom Large Language Model (LLM) is fine tuned to help you plan your perfect class schedule with ease.
 
 > More information about the company and the platform can be found here [collageapp.info](https://collageapp.info/).
-
-### Platform Demo
-
-<div align="center">
-  <img src="images/catalog_demo.png" alt="Demo 1" width="45%" style="display: inline-block;">
-  <img src="images/login_demo.png" alt="Demo 2" width="45%" style="display: inline-block;">
-</div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -122,7 +125,7 @@ $ source env/bin/activate
 ```
 
 <!-- USAGE EXAMPLES -->
-## Run the Project
+### Run the Project
 
 To run the website locally, follow these following steps:
 
