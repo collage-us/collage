@@ -40,6 +40,9 @@ const Navbar = () => {
         <li className='link-5'>
           <Link to="/signup" className="signup">Sign up</Link>
         </li>
+        <li className='link-6'>
+          <Link to="/profile" className="profile">ProfileBar</Link>
+        </li>
       </ul>
     </nav>
   );

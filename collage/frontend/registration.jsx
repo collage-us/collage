@@ -9,6 +9,7 @@ import ForStudents from './ForStudents';
 import Support from './Support';
 import Signup from './Signup/Wrapper';
 import Login from './Login/Wrapper';
+import Profile from './ProfileBar';
 
 export default function Registration() {
   return (
@@ -23,6 +24,7 @@ export default function Registration() {
             <Route path="/support" element={<Support />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/profile" element={<Profile />}></Route>
           </Routes>
         </div>
       </Router>
