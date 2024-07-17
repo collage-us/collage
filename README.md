@@ -65,7 +65,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## About the Platform
 
 ### Collage is College Redefined
 Higher education is at a crossroads. The traditional college class is becoming increasingly obsolete as we’ve witnessed lower attendance and lower grades, and the amount of students using generative AIs like ChatGPT to complete their work has skyrocketed. The way college operates is rapidly evolving and that is largely due to one key development in consumer demand: personalization.
@@ -84,6 +84,12 @@ Our custom Large Language Model (LLM) is fine tuned to help you plan your perfec
 
 > More information about the company and the platform can be found here [collageapp.info](https://collageapp.info/).
 
+### Platform Demo
+
+<div align="center">
+  <img src="images/catalog_demo.png" alt="Demo 1" width="45%" style="display: inline-block;">
+  <img src="images/login_demo.png" alt="Demo 2" width="45%" style="display: inline-block;">
+</div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -100,7 +106,7 @@ We use Python version **3.12.3**. To check your version, run:
 $ python --version
 ```
 
-### Installation
+### Install the Dependencies
 
 There's a shell script that contains all the commands you need. As a result, make sure you are in the main directory and then simply run these commands:
 ```
@@ -116,7 +122,7 @@ $ source env/bin/activate
 ```
 
 <!-- USAGE EXAMPLES -->
-## Usage
+## Run the Project
 
 To run the website locally, follow these following steps:
 
