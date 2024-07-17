@@ -4,7 +4,7 @@ import io
 from authlib.integrations.flask_client import OAuth
 from collage.server.recommend import recommend_classes
 from collage.server.dalle import generate_image, format_prompt
-from helper import parse_resume
+from collage.server.nltk import parse_resume
 
 
 # OAuth setup
@@ -198,7 +198,18 @@ def upload_file():
         return flask.jsonify({'error': 'No selected file'}), 400
 
     if file:
+        connection = collage.model.get_db()
+        data = flask.request.get_json()
+        user_id = data['user_id']
         file_stream = io.BytesIO(file.read())
         keywords_string = parse_resume(file_stream)
-        # TODO: add query that updates the users table's keywords column
+        # Updates the users table's keywords column
+        with connection.cursor(dictionary=True) as cursor:
+            keywords_query = """
+                UPDATE users
+                SET keywords = %s
+                WHERE user_id = %s
+            """
+            cursor.execute(keywords_query, (keywords_string, user_id))
+            connection.commit()
         return flask.jsonify({'success': 'keywords extracted'})
