@@ -21,6 +21,9 @@ const Home = ({ userId }) => {
         }
 
         setCourses(result);
+
+        // TODO: add error check for `result` when the user does not exist
+        // in this case, the backend will return {"status": "failure"}
       } catch(error) {
         console.error('Error fetching courses');
       }
