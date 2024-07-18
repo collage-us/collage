@@ -1,4 +1,4 @@
-import { Container } from "@mantine/core";
+import { Container, Grid } from "@mantine/core";
 import React, {useState, useEffect} from "react";
 import CourseBox from './CourseBox';
 
