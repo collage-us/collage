@@ -1,1 +1,1 @@
-web: gunicorn wsgi:app
+web: npx webpack --watch && gunicorn wsgi:app

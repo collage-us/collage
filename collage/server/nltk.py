@@ -4,14 +4,13 @@ import os
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
+# Define the writable directory for NLTK data
+nltk_data_dir = os.path.expanduser('~/nltk_data')
 
-# Specify a different directory for NLTK data
-nltk_data_dir = '/app'
+# Create the directory if it doesn't exist
+os.makedirs(nltk_data_dir, exist_ok=True)
 
-# Check if the directory exists, if not, create it
-if not os.path.exists(nltk_data_dir):
-    os.makedirs(nltk_data_dir)
-
+# Set the NLTK data path to the new directory
 nltk.data.path.append(nltk_data_dir)
 
 # Download the necessary NLTK data
