@@ -3,12 +3,30 @@ import { Link, useLocation } from 'react-router-dom';
 import { Image } from '@mantine/core';
 import './CSS/Navbar.css';
 import logo from './images/collage-logo.png';
+import Cookies from 'js-cookie';
 
-
-const Navbar = () => {
+const Navbar = ({loggedIn, setLoggedIn, registered, setRegistered}) => {
   const location = useLocation();
-
   const hiddenPaths = ['/login', '/signup'];
+
+  const handleLogout = async () => {
+    var response = await fetch("/api/logout/", {
+      method: "POST",
+      credentials: "include",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${Cookies.get('access_token')}`,}
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      if(!data.registered){
+        setLoggedIn(false);
+        setRegistered(false);
+        Cookies.remove('access_token');
+      } 
+    })
+  };
 
   if(hiddenPaths.includes(location.pathname)){
     return null;
@@ -34,11 +52,18 @@ const Navbar = () => {
         <li className="link-3">
           <Link to="/support" className="support">Support</Link>
         </li>
-        <li className='link-4'>
-          <Link to="/login" className="login">Log in</Link>
+        <li className="link-3">
+          <Link to="/search" className="support">Search</Link>
         </li>
-        <li className='link-5'>
+        {!loggedIn && <li className='link-4'>
+          <Link to="/login" className="login">Log in</Link>
+        </li>}
+        {!loggedIn && <li className='link-5'>
           <Link to="/signup" className="signup">Sign up</Link>
+        </li>}
+        {loggedIn && <li className='link-4'>
+          <button className="login" onClick={handleLogout}>Log Out</button>
+        </li>}
         </li>
         <li className='link-6'>
           <Link to="/home" className="home">Home</Link>

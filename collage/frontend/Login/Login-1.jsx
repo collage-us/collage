@@ -23,7 +23,7 @@ const Login1 = () => {
       />
       <br />
       <Checkbox
-        label="Remember me?"
+        label="Remember me"
         size="md"
         styles={{
           label: { fontSize: 18, textAlign: 'left', alignContent: 'left' },

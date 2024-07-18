@@ -2,6 +2,7 @@ import React from "react";
 import {createTheme, MantineProvider, rem} from '@mantine/core';
 import { createRoot } from "react-dom/client";
 import Registration from "./registration";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 import '@mantine/core/styles.css';
 import '@mantine/dropzone/styles.css';
 
@@ -14,6 +15,8 @@ const root = createRoot(document.getElementById("reactEntry"));
 root.render(
   <MantineProvider theme={{
     fontFamily: 'DM Sans'}}>
-    <Registration/>
+      <GoogleOAuthProvider clientId="Replace with client ID">
+        <Registration/>
+      </GoogleOAuthProvider>
   </MantineProvider>
 );
