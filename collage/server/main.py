@@ -10,16 +10,16 @@ from flask_cors import CORS
 # from authlib.integrations.flask_client import OAuth
 from collage.server.recommend import recommend_classes
 
+CORS(collage.app)
 # Initialize JWTManager
-collage.app.config['JWT_SECRET_KEY'] = 'your-secret-key'  # Replace with your own secret key
-collage.app.config['JWT_TOKEN_LOCATION'] = ['cookies']
+collage.app.config['JWT_SECRET_KEY'] = os.environ['JWT_SECRET_KEY']  # Replace with your own secret key
+collage.app.config['JWT_TOKEN_LOCATION'] = ['headers', 'cookies', 'json']
 jwt = JWTManager(collage.app)
 
 load_dotenv()  # Load the environment variables from the .env file
 
 GOOGLE_CLIENT_ID = os.environ['GOOGLE_CLIENT_ID']
 GOOGLE_SECRET_KEY = os.environ['GOOGLE_SECRET_KEY']
-flask.session['registered'] = False # initialize registered
 
 def verify_user():
     """
@@ -28,11 +28,16 @@ def verify_user():
     """
     if flask.session['registered'] != True:
         return flask.jsonify(unregistered=True), 200
+    
+@collage.app.route('/api/', methods=['GET'])
+def home():
+    return flask.jsonify(working=True), 200
 
 @collage.app.route('/api/login/', methods=['POST'])
 def login():
     auth_code = flask.request.get_json()['code']
-
+    if not flask.session.get('registered'):
+        flask.session['registered'] = False
     data = {
         'code': auth_code,
         'client_id': GOOGLE_CLIENT_ID,  # client ID from the credential at google developer console
@@ -46,29 +51,36 @@ def login():
         'Authorization': f'Bearer {response["access_token"]}'
     }
     user_info = requests.get('https://www.googleapis.com/oauth2/v3/userinfo', headers=headers).json()
-    """
-        check here if user exists in database, if not, mark session user as unregistered, otherwise mark user as registered.
-    """
-    flask.session['current_user'] = user_info['email']
-    connection = collage.model.get_db()
-    with connection.cursor(dictionary=True) as cursor:
-        user_query = """
-                    SELECT *
-                    FROM users
-                    WHERE user_email = %s
-                """
-        cursor.execute(user_query, (user_info['email'],))
-        result = cursor.fetchone()
-        if result is None:
+    print(user_info)
+    if 'hd' in user_info.keys():
+        if user_info['hd'][-4:] == ".edu":
+            """
+                check here if user exists in database, if not, mark session user as unregistered, otherwise mark user as registered.
+            """
+            flask.session['current_user'] = user_info['email']
             flask.session['registered'] = False
-        else:
-            flask.session['registered'] = True
-            flask.session['current_user_id'] = result[0]
-    jwt_token = create_access_token(identity=user_info['email'])  # create jwt token
-    response = flask.jsonify(user=user_info, registered=flask.session['registered']) # change the response to whatever is needed for other frontend operations
-    response.set_cookie('access_token_cookie', value=jwt_token, secure=True)
-
-    return response, 200
+            # connection = collage.model.get_db()
+            # with connection.cursor(dictionary=True) as cursor:
+            #     user_query = """
+            #                 SELECT *
+            #                 FROM users
+            #                 WHERE user_email = %s
+            #             """
+            #     cursor.execute(user_query, (user_info['email'],))
+            #     result = cursor.fetchone()
+            #     if result is None:
+            #         flask.session['registered'] = False
+            #     else:
+            #         flask.session['registered'] = True
+            #         flask.session['current_user_id'] = result[0]
+            jwt_token = create_access_token(identity=user_info['email'])  # create jwt token
+            print(jwt_token)
+            response = flask.jsonify(status="success", user=user_info, registered=flask.session['registered']) # change the response to whatever is needed for other frontend operations
+            response.set_cookie('access_token', value=jwt_token, secure=True)
+            return response, 200
+    else:
+        print("login_failure")
+        return flask.jsonify(status="failed"), 200
 
 @collage.app.route('/api/signup/', methods=['POST'])
 @jwt_required()
@@ -97,6 +109,9 @@ def logout():
     flask.session['registered'] = False
     flask.session['current_user'] = None
     flask.session['current_user_id'] = None
+    jwt_token = flask.request.cookies.get('access_token') # Demonstration how to get the cookie
+    # current_user = get_jwt_identity()
+    print(jwt_token)
     return flask.jsonify(registered=False), 200
 
 @collage.app.route('/api/catalog/', methods=['POST'])
@@ -196,8 +211,10 @@ def get_user_stats(user_id):
     finally:
         connection.close()
 
-
-
+@collage.app.route('/api/search/classes/<string:search_string>/<int:user_id>/', methods=['POST'])
+def search_classes(serach_string,user_id):
+    #take things in as a json object
+    search_params = flask.request.get_json()
 # OAuth setup
 # oauth = OAuth(collage.app)
 

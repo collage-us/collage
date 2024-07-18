@@ -1,6 +1,8 @@
-import React, { useState, useNavigate} from 'react';
-import { Link } from 'react-router-dom';
-import { Title } from '@mantine/core';
+import React, { useState } from 'react';
+// import {Alert} from 'react-alert';
+import { Link, redirect, useNavigate } from 'react-router-dom';
+import { Title, Dialog, Text} from '@mantine/core';
+import {Check, X, AlertCircle} from '@tabler/icons-react';
 import Login1 from './Login-1';
 import '../Styles/Signup.css';
 import { useGoogleLogin } from "@react-oauth/google";
@@ -16,24 +18,50 @@ async function getUserInfo(codeResponse) {
   return await response.json();
 }
 
-const Login = ({setLoggedIn, setRegistered}) => {
-  const navigate = useNavigate()
+const Login = ({loggedIn, setLoggedIn, registered, setRegistered}) => {
+  const navigate = useNavigate();
+  const [userDetails, setUserDetails] = useState();
+  const [invalidLogin, setInvalidLogin] = useState(false);
   const googleLogin = useGoogleLogin({
     flow: "auth-code",
     onSuccess: async (codeResponse) => {
       var loginDetails = await getUserInfo(codeResponse);
-      setLoggedIn(true);
-      if (loginDetails.data.registered){
-        setRegistered(true);
+      if (loginDetails.status === "failed"){
+        setInvalidLogin(true);
+        // alert('Please make sure you login with your .edu email.')
       }
       else{
-        setRegistered(false);
-        navigate("/signup");
+        setLoggedIn(true);
+        console.log(loginDetails.registered);
+
+        if (loginDetails.registered === true){
+          setRegistered(true);
+          navigate("/");
+        }
+        else{
+          setRegistered(false);
+          navigate("/signup");
+        }
       }
     },
+    onError: async (codeResponse) => {
+      console.log("failed");
+    }
   })
   return (
     <div className="wrapper-login">
+      <Dialog
+        opened={invalidLogin}
+        withCloseButton
+        onClose={() => setInvalidLogin(false)}
+        size="lg"
+        radius="lg"
+        position={{ top: 20, left: 20 }}
+      >
+        <Text size="lg" style={{ marginBottom: 10 }} weight={500} color="red">
+          Please make sure to use your .edu email
+        </Text>
+      </Dialog>
       <div className="collageTitle">
         <Link to="/"><Title order={1}>Collage</Title></Link>
       </div>
