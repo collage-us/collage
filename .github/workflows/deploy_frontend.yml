@@ -1,4 +1,4 @@
-name: Build and Deploy React App
+name: Build and Deploy React and Flask App
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,9 +24,20 @@ jobs:
     - name: Build React App
       run: npx webpack
 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+    - name: Set up Python
+      uses: actions/setup-python@v2
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_branch: gh-pages
-        publish_dir: ./collage/static/js
+        python-version: '3.12.3'
+
+    - name: Install Python dependencies
+      run: |
+        python -m venv env
+        source env/bin/activate
+        pip install -r requirements.txt
+
+    - name: Deploy to Heroku
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      run: |
+        heroku git:remote -a collage
+        git push heroku main
