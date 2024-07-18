@@ -5,6 +5,10 @@
   "main": "collage/frontend/main.jsx",
   "author": "collage-team",
   "repository": {},
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "npm run build && flask run"
+  },
   "devDependencies": {
     "@babel/core": ">=7.23.9",
     "@babel/eslint-parser": ">=7.23.10",
