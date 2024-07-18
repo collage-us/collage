@@ -8,7 +8,7 @@ const Home = ({ userId }) => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await fetch(`/api/catalog/`, { 
+        const response = await fetch(`/api/catalog/`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -18,7 +18,7 @@ const Home = ({ userId }) => {
         const result = await response.json;
         if (!response.ok){
           throw new Error('Network response error');
-        } 
+        }
 
         setCourses(result);
       } catch(error) {
