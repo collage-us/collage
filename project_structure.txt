@@ -1,0 +1,88 @@
+collage
+├── __init__.py
+├── __pycache__
+│   ├── __init__.cpython-312.pyc
+│   └── config.cpython-312.pyc
+├── config.py
+├── frontend
+│   ├── About.jsx
+│   ├── CSS
+│   │   ├── Home.css
+│   │   ├── Navbar.css
+│   │   └── Signup.css
+│   ├── ForStudents.jsx
+│   ├── Home
+│   │   ├── CourseBox.jsx
+│   │   ├── Home.jsx
+│   │   └── ProfileBar.jsx
+│   ├── Landing
+│   │   ├── Landing-1.jsx
+│   │   ├── Landing-2.jsx
+│   │   ├── Landing-3.jsx
+│   │   ├── Landing-4.jsx
+│   │   └── Landing.jsx
+│   ├── Login
+│   │   ├── Login-1.jsx
+│   │   └── Wrapper.jsx
+│   ├── Navbar.jsx
+│   ├── Signup
+│   │   ├── Signup-1.jsx
+│   │   ├── Signup-2.jsx
+│   │   ├── Signup-3.jsx
+│   │   ├── Signup-4.jsx
+│   │   └── Wrapper.jsx
+│   ├── Support.jsx
+│   ├── images
+│   │   ├── background-2.png
+│   │   ├── background-3.png
+│   │   ├── blue-logo.png
+│   │   ├── collage-logo.png
+│   │   ├── green-logo.png
+│   │   ├── last-background.png
+│   │   ├── main-background.png
+│   │   └── schedule-image.png
+│   ├── main.jsx
+│   └── registration.jsx
+├── llm
+│   └── llm.py
+├── model.py
+├── server
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-312.pyc
+│   │   ├── dalle.cpython-312.pyc
+│   │   ├── main.cpython-312.pyc
+│   │   ├── nltk.cpython-312.pyc
+│   │   └── recommend.cpython-312.pyc
+│   ├── dalle.py
+│   ├── main.py
+│   ├── nltk.py
+│   └── recommend.py
+├── static
+│   └── js
+│       ├── bundle.js
+│       ├── bundle.js.map
+│       └── collage
+│           └── frontend
+│               └── images
+│                   ├── background-2.png
+│                   ├── background-3.png
+│                   ├── blue-logo.png
+│                   ├── collage-logo-2.png
+│                   ├── collage-logo.png
+│                   ├── green-logo.png
+│                   ├── last-background.png
+│                   ├── main-background.png
+│                   ├── schedule-image.png
+│                   └── shutterstock-background.png
+├── templates
+│   └── index.html
+├── views
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-312.pyc
+│   │   └── index.cpython-312.pyc
+│   └── index.py
+└── wsgi.py
+
+20 directories, 66 files
