@@ -35,7 +35,10 @@
   </a>
 <h3 align="center">Collage</h3>
   <p align="center">
-    An Education Technology Platform
+    A Platform for Personalized Course Planning and AI Academic Advising,
+  </p>
+  <p align="center">
+    Made by College Students, for College Students
   </p>
 </div>
 
@@ -65,33 +68,31 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## About the Platform
+
+### Platform Demo
+
+<div align="center">
+  <img src="images/catalog_demo.png" alt="Demo 1" width="45%" style="display: inline-block;">
+  <img src="images/login_demo.png" alt="Demo 2" width="45%" style="display: inline-block;">
+</div>
+
+### Collage is College Redefined
+Higher education is at a crossroads. The traditional college class is becoming increasingly obsolete as we’ve witnessed lower attendance and lower grades, and the amount of students using generative AIs like ChatGPT to complete their work has skyrocketed. The way college operates is rapidly evolving and that is largely due to one key development in consumer demand: personalization.
+
+From the TikTok for you page to the Amazon marketplace, a personalized user experience has become a top priority for highly successful companies looking to keep their customers engaged. Consumers want products and services that are personally tailored to their wants and needs. The same goes for college students with their education. If universities want their students to reengage they need to personalize the user experience. Colleges need to start looking at themselves not solely as educational institutions, but as tech and social media companies as well.
+
+This is the guiding mission of Collage. Collage is an education technology platform that uses artificial intelligence and social media to help students craft personalized class schedules, explore career paths, and make informed decisions about their education. We are a student-run startup striving to give students around the world a more equitable, enjoyable, and personalized college experience
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
-Project structure is shown as follows:
-```
-collage
-├── __init__.py
-├── config.py
-├── frontend
-│   ├── main.jsx
-│   └── registration.jsx
-├── llm
-│   └── llm.py
-├── server
-│   ├── __init__.py
-│   └── main.py
-├── static
-│   ├── images
-│   └── js
-│       ├── bundle.js
-│       └── bundle.js.map
-├── templates
-│   └── index.html
-└── views
-    ├── __init__.py
-    └── index.py
-```
+#### Never Stress about Class Scheduling Again
+Collage is here to completely overhaul your registration process.
+#### Personalized Course Planning
+Courses best fit to enhance your college experience will be recommended to you through an infinite scrolling system.
+#### AI Academic Advising
+Our custom Large Language Model (LLM) is fine tuned to help you plan your perfect class schedule with ease.
+
+> More information about the company and the platform can be found here [collageapp.info](https://collageapp.info/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -108,7 +109,7 @@ We use Python version **3.12.3**. To check your version, run:
 $ python --version
 ```
 
-### Installation
+### Install the Dependencies
 
 There's a shell script that contains all the commands you need. As a result, make sure you are in the main directory and then simply run these commands:
 ```
@@ -124,7 +125,7 @@ $ source env/bin/activate
 ```
 
 <!-- USAGE EXAMPLES -->
-## Usage
+### Run the Project
 
 To run the website locally, follow these following steps:
 

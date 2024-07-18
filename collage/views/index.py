@@ -1,8 +1,6 @@
-"""Render Empty HTML."""
-import flask
+from flask import render_template
 import collage
-
 
 @collage.app.route('/')
 def get_index():
-    return flask.render_template("index.html")
+    return render_template('index.html')

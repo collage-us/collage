@@ -8,7 +8,10 @@ from flask_jwt_extended import create_access_token, JWTManager, jwt_required, ge
 from flask_cors import CORS
 # from collage.server.auth import auth
 # from authlib.integrations.flask_client import OAuth
+import io
 from collage.server.recommend import recommend_classes
+from collage.server.dalle import generate_image, format_prompt
+from collage.server.nltk import parse_resume
 
 CORS(collage.app)
 # Initialize JWTManager
@@ -118,23 +121,57 @@ def logout():
 @jwt_required()
 def handle_catalog():
     verify_user()
-    # connection = collage.model.get_db()  # open db
-
-    # select_all_classes_query = """
-    #     SELECT *
-    #     FROM classes
-    # """
-
-    # with connection.cursor() as cursor:
-    #     cursor.execute(select_all_classes_query)
-    #     classes = cursor.fetchall()
+    connection = collage.model.get_db()  # open db
+    # assume JSON data format is {'user_id": INT}
     data = flask.request.get_json()
     user_id = data['user_id']
-    recommendations = recommend_classes(user_id)
-    return flask.jsonify(recommendations.to_dict(orient='records'))
+    recommendations = recommend_classes(connection, user_id)
 
+    # the user does not exist
+    if recommendations == None:
+        return flask.jsonify(
+            {"status": "failure"}
+        )
 
-@collage.app.route('/api/user_stats/<int:user_id>', methods=['GET'])
+    recommendations = recommendations.to_dict(orient='records')
+
+    for course in recommendations:
+        course_id = course['course_id']
+
+        with connection.cursor(dictionary=True) as cursor:
+            course_info_query = """
+                SELECT subject code, catalog_number,
+                credit_hours, instructor_id, course_name,
+                course_description, class_topic, ai_img_url
+                FROM courses
+                WHERE course_id = %s
+            """
+            cursor.execute(course_info_query, (course_id,))
+            course = cursor.fetchone()
+        course['course_id'] = course_id
+
+        # check whether an AI image has been generated for that course
+        if course['ai_img_url'] == None:
+            prompt = format_prompt(course['course_description'], course['class_topic'])
+            img_url = generate_image(
+                model="dall-e-3",
+                prompt=prompt
+            )
+            course['ai_img_url'] = img_url
+
+            with connection.cursor(dictionary=True) as cursor:
+                img_query = """
+                    UPDATE courses
+                    SET ai_img_url = %s
+                    WHERE course_id = %s
+                """
+                cursor.execute(img_query, (img_url, course_id))
+                connection.commit()
+
+    # return the JSON of "a list of dictionaries"
+    return flask.jsonify(recommendations)
+
+@collage.app.route('/api/student/<int:user_id>', methods=['GET'])
 @jwt_required()
 def get_user_stats(user_id):
     verify_user()
@@ -166,7 +203,6 @@ def get_user_stats(user_id):
                 'follower_count': follower_count,
                 'view_count': view_count
             }
-        
         elif op == 'student_info':
             with connection.cursor(dictionary=True) as cursor:
                 student_info_query = """
@@ -192,7 +228,7 @@ def get_user_stats(user_id):
                 """
                 cursor.execute(major_credits_query, (user_id,))
                 credits_required = cursor.fetchone()['credits_required']
-            
+
             response = {
                 'graduation_year': student_info['graduation_year'],
                 'registration_term': student_info['start_year'],
@@ -204,10 +240,10 @@ def get_user_stats(user_id):
             response = {'error': 'Invalid operation specified'}
 
         return flask.jsonify(response)
-    
+
     except Exception as e:
         return flask.jsonify({'error': str(e)}), 500
-    
+
     finally:
         connection.close()
 
@@ -215,6 +251,39 @@ def get_user_stats(user_id):
 def search_classes(serach_string,user_id):
     #take things in as a json object
     search_params = flask.request.get_json()
+
+@collage.app.route('/api/test/', methods=['GET'])
+def test():
+    """A test endpoint for checking whether backend Python code can be compiled."""
+    return flask.jsonify({"flag": "success"})
+
+
+@collage.app.route('/upload/resume/', methods=['POST'])
+def upload_file():
+    if 'file' not in flask.request.files:
+        return flask.jsonify({'error': 'No file part'}), 400
+
+    file = flask.request.files['file']
+    if file.filename == '':
+        return flask.jsonify({'error': 'No selected file'}), 400
+
+    if file:
+        connection = collage.model.get_db()
+        data = flask.request.get_json()
+        user_id = data['user_id']
+        file_stream = io.BytesIO(file.read())
+        keywords_string = parse_resume(file_stream)
+        # Updates the users table's keywords column
+        with connection.cursor(dictionary=True) as cursor:
+            keywords_query = """
+                UPDATE users
+                SET keywords = %s
+                WHERE user_id = %s
+            """
+            cursor.execute(keywords_query, (keywords_string, user_id))
+            connection.commit()
+        return flask.jsonify({'success': 'keywords extracted'})
+
 # OAuth setup
 # oauth = OAuth(collage.app)
 

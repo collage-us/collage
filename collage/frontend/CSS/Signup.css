@@ -1,0 +1,164 @@
+.wrapper {
+  background-color: #efffd4;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.wrapper-login {
+  background-color: #fff1d4;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.collageTitle {
+  width: 100vw;
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+}
+
+.collageTitle h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 4rem;
+  text-decoration: none;
+  color: black;
+}
+
+.wrapperBox {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 2fr 9fr 3fr;
+  background-color: #fffcfc;
+  border-radius: 5%;
+  width: 580px;
+  height: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wrapperContent {
+  grid-row-start: 3;
+  grid-row-end: 4;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3%;
+  width: 70%;
+  height: 90%;
+  text-align: left;
+}
+
+.wrapperContent br {
+  display: block;
+  margin: 10px 0px;
+  content: "";
+}
+
+.wrapperNav {
+  margin-top: 3%;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: flex;
+  justify-content: space-between;
+}
+
+.leftArrow {
+  margin-left: 3%;
+  margin-right: auto;
+}
+
+.rightArrow {
+  margin-left: auto;
+  margin-right: 3%;
+}
+
+.wrapperTitle {
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.wrapperTitle h2 {
+  font-size: 2rem;
+  font-weight: lighter;
+}
+
+.wrapperFooter {
+  margin-left: auto;
+  margin-right: auto;
+  grid-row-start: 4;
+  width: 70%;
+  height: 90%;
+  font-family: "Judson";
+}
+
+.bottomButton {
+  background-color: #b8ffc8;
+  font-family: "Judson";
+  color: black;
+  border-radius: 12px;
+  text-align: center;
+  display: inline-block;
+  font-size: 30px;
+  width: 100%;
+  height: 60%;
+  border: 0;
+  font-weight: lighter;
+  box-shadow: 5px 5px lightgray;
+}
+
+.bottomButton:hover {
+  cursor: pointer;
+  transform: scale(1.05) perspective(1px);
+}
+
+.bottomText {
+  margin-top: 2%;
+  color: #5d5d5d;
+  font-weight: lighter;
+}
+
+.bottomText a {
+  text-decoration: underline;
+  color: #5d5d5d;
+}
+
+.bottomText a:hover {
+  cursor: pointer;
+  font-weight: bold;
+  color: black;
+}
+
+.passwordText {
+  margin: 0;
+  color: gray;
+  line-height: 15px;
+}
+
+.dropDownLine {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropDown1 {
+  width: 49%;
+  margin-left: 0;
+}
+
+.dropDown2 {
+  width: 49%;
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.dropZone {
+  margin: 0;
+}
+
+.dropZone h4 {
+  font-weight: normal;
+  margin: 0;
+}

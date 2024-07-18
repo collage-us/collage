@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Image } from '@mantine/core';
-import './styles/Navbar.css';
+import './CSS/Navbar.css';
 import logo from './images/collage-logo.png';
 import Cookies from 'js-cookie';
 
@@ -64,6 +64,10 @@ const Navbar = ({loggedIn, setLoggedIn, registered, setRegistered}) => {
         {loggedIn && <li className='link-4'>
           <button className="login" onClick={handleLogout}>Log Out</button>
         </li>}
+        </li>
+        <li className='link-6'>
+          <Link to="/home" className="home">Home</Link>
+        </li>
       </ul>
     </nav>
   );

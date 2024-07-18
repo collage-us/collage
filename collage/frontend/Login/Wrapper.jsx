@@ -4,8 +4,8 @@ import { Link, redirect, useNavigate } from 'react-router-dom';
 import { Title, Dialog, Text} from '@mantine/core';
 import {Check, X, AlertCircle} from '@tabler/icons-react';
 import Login1 from './Login-1';
-import '../Styles/Signup.css';
 import { useGoogleLogin } from "@react-oauth/google";
+import '../CSS/Signup.css';
 
 async function getUserInfo(codeResponse) {
   var response = await fetch("/api/login/", {
