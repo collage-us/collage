@@ -1,7 +1,6 @@
-from flask import Blueprint, render_template
+from flask import render_template
+import collage
 
-bp = Blueprint('index', __name__)
-
-@bp.route('/')
+@collage.app.route('/')
 def get_index():
     return render_template('index.html')
