@@ -3,7 +3,7 @@ import { Center, Image , Text, Box, TextInput, Button } from '@mantine/core';
 import background3 from '../images/background-3.png';
 import '../CSS/Home.css';
 
-const Home3 = () => {
+const Landing3 = () => {
   return <>
     <Center style={{ height: '85vh' }}>
       <Box className="landing-page-box">
@@ -16,4 +16,4 @@ const Home3 = () => {
   </>
 };
 
-export default Home3;
+export default Landing3;

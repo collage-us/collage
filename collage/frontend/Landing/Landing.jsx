@@ -1,11 +1,11 @@
 import React from 'react';
 import '../CSS/Home.css';
-import Home1 from './Home-1';
-import Home2 from './Home-2';
-import Home4 from './Home-4';
-import Home3 from './Home-3';
+import Home1 from './Landing-1';
+import Home2 from './Landing-2';
+import Home4 from './Landing-4';
+import Home3 from './Landing-3';
 
-const Home = () => {
+const Landing = () => {
   return (
     <div className="home-container">
       <section className="section">
@@ -23,4 +23,4 @@ const Home = () => {
     </div>
   );
 };
-export default Home;
+export default Landing;
