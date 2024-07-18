@@ -1,8 +1,7 @@
-"""Render Empty HTML."""
-import flask
-import collage
+from flask import Blueprint, render_template
 
+bp = Blueprint('index', __name__)
 
-@collage.app.route('/')
+@bp.route('/')
 def get_index():
-    return flask.render_template("index.html")
+    return render_template('index.html')
