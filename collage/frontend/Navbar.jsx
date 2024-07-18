@@ -24,7 +24,7 @@ const Navbar = ({loggedIn, setLoggedIn, registered, setRegistered}) => {
         setLoggedIn(false);
         setRegistered(false);
         Cookies.remove('access_token');
-      } 
+      }
     })
   };
 
@@ -64,7 +64,6 @@ const Navbar = ({loggedIn, setLoggedIn, registered, setRegistered}) => {
         {loggedIn && <li className='link-4'>
           <button className="login" onClick={handleLogout}>Log Out</button>
         </li>}
-        </li>
         <li className='link-6'>
           <Link to="/home" className="home">Home</Link>
         </li>
