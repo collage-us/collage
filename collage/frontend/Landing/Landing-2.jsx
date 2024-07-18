@@ -5,7 +5,7 @@ import background2 from '../images/background-2.png';
 import greenLogo from '../images/green-logo.png';
 import blueLogo from '../images/blue-logo.png';
 
-const Home2 = () => {
+const Landing2 = () => {
   return <>
     <Center style={{ height: '75vh' }}>
       <Box className="landing-page-box">
@@ -20,4 +20,4 @@ const Home2 = () => {
   </>
 };
 
-export default Home2;
+export default Landing2;

@@ -5,7 +5,7 @@ import lastBackground from '../images/last-background.png';
 import logo from '../images/collage-logo.png';
 import '../CSS/Home.css';
 
-const Home4 = () => {
+const Landing4 = () => {
   return <>
     <Box style={{width: '100vw', height: '100vh', overflow: 'hidden'}} className="landing-page-box">
       <Image radius="md" style={{height: '100%', width: '100%', objectFit: 'cover'}} src={lastBackground} className="main-background-image"/>
@@ -57,4 +57,4 @@ const Home4 = () => {
   </>
 };
 
-export default Home4
+export default Landing4;
