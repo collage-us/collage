@@ -1,10 +1,12 @@
 import React from "react";
 import {createTheme, MantineProvider, rem} from '@mantine/core';
 import { createRoot } from "react-dom/client";
-import Registration from "./registration";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import '@mantine/core/styles.css';
 import '@mantine/dropzone/styles.css';
+
+// import Registration from "./registration";
+const Registration = lazy(() => import('./registration'));
 
 
 // Create a root

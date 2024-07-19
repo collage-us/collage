@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import GoogleIcon from "@mui/icons-material/Google";
 import IconButton from "@mui/material/IconButton";
 import { useGoogleLogin } from "@react-oauth/google";
-import UserAvatar from "./userAvatar";
+
+// Lazy load the UserAvatar component
+const UserAvatar = lazy(() => import('./userAvatar'));
 
 async function getUserInfo(codeResponse) {
   var response = await fetch("/google_login", {

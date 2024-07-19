@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { Popover, Checkbox, CheckboxGroup, Stack, TextInput, Title, Button, ActionIcon, rem } from '@mantine/core';
 import { IconSearch, IconUsers, IconBell, IconMessageDots, IconMoodSmileBeam } from '@tabler/icons-react';
 import '@mantine/core/styles/Button.css'
 import '../Styles/Search.css';
-import ClassCard from './Class-Card';
+// import ClassCard from './Class-Card';
+const ClassCard = lazy(() => import('./Class-Card'));
 
 const Search = () => {
     const searchIcon = <IconSearch style={{width: rem(16), height: rem(16)}}/>
@@ -69,7 +70,7 @@ const Search = () => {
             </div>
         </div>
     )
-  
+
 };
 
 export default Search;

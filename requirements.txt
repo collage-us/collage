@@ -10,13 +10,14 @@ certifi==2024.2.2
 cffi==1.16.0
 charset-normalizer==3.3.2
 click==8.1.7
--e git+https://github.com/zichenzhang04/collage.git@dfe28cd65ed33ef3ef51688e947bf9700d497943#egg=collage
+-e git+https://github.com/zichenzhang04/collage.git@03fe0e573008ded513d353ee68a98105f81d62b5#egg=collage
 cryptography==42.0.8
 dill==0.3.8
 distro==1.9.0
 Flask==3.0.1
 Flask-Cors==4.0.1
 Flask-JWT-Extended==4.6.0
+gunicorn==22.0.0
 h11==0.14.0
 httpcore==1.0.5
 httpx==0.27.0

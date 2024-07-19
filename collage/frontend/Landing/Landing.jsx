@@ -1,9 +1,9 @@
 import React from 'react';
 import '../CSS/Home.css';
-import Home1 from './Landing-1';
-import Home2 from './Landing-2';
-import Home4 from './Landing-4';
-import Home3 from './Landing-3';
+const Home1 = lazy(() => import('./Landing-1'));
+const Home2 = lazy(() => import('./Landing-2'));
+const Home3 = lazy(() => import('./Landing-3'));
+const Home4 = lazy(() => import('./Landing-4'));
 
 const Landing = () => {
   return (
