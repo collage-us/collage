@@ -15,7 +15,7 @@ from collage.server.nltk import parse_resume
 
 CORS(collage.app)
 # Initialize JWTManager
-collage.app.config['JWT_SECRET_KEY'] = os.environ['JWT_SECRET_KEY']  # Replace with your own secret key
+collage.app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY')  # Replace with your own secret key
 collage.app.config['JWT_TOKEN_LOCATION'] = ['headers', 'cookies', 'json']
 jwt = JWTManager(collage.app)
 
@@ -31,7 +31,7 @@ def verify_user():
     """
     if flask.session['registered'] != True:
         return flask.jsonify(unregistered=True), 200
-    
+
 @collage.app.route('/api/', methods=['GET'])
 def home():
     return flask.jsonify(working=True), 200
@@ -96,7 +96,7 @@ def signup():
     connection = collage.model.get_db()
     with connection.cursor(dictionary=True) as cursor:
         insert_query = """
-                    INSERT INTO users (email, full_name, start_year, graduation_year, enrollment_date, 
+                    INSERT INTO users (email, full_name, start_year, graduation_year, enrollment_date,
                     credits_completed, major, last_updated, created_at) VALUES (%s, %s, %i, %i, %s, %i, %s, %s, %s)
                 """
         cursor.execute(insert_query, (flask.session['current_user'], data['full_name'], data['start_year'], data['graduation_year'],

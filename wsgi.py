@@ -1,3 +1,5 @@
+"""For running on a production environment."""
+
 from collage import create_app
 
 app = create_app()
