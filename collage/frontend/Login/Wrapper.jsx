@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 // import {Alert} from 'react-alert';
 import { Link, redirect, useNavigate } from 'react-router-dom';
 import { Title, Dialog, Text} from '@mantine/core';
-import {Check, X, AlertCircle} from '@tabler/icons-react';
-import Login1 from './Login-1';
+// import {Check, X, AlertCircle} from '@tabler/icons-react';
+// import Login1 from './Login-1';
+const Login1 = lazy(() => import('./Login-1'))
 import { useGoogleLogin } from "@react-oauth/google";
 import '../CSS/Signup.css';
 

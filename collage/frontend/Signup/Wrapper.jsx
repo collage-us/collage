@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { Title, Button, ActionIcon } from '@mantine/core';
 import { IconCircleChevronRight, IconCircleChevronLeft } from '@tabler/icons-react';
 import '@mantine/core/styles/Button.css'
-import Signup1 from './Signup-1';
-import Signup2 from './Signup-2';
-import Signup3 from './Signup-3';
-import Signup4 from './Signup-4';
+const Signup1 = lazy(() => import('./Signup-1'));
+const Signup2 = lazy(() => import('./Signup-2'));
+const Signup3 = lazy(() => import('./Signup-3'));
+const Signup4 = lazy(() => import('./Signup-4'))
 import '../CSS/Signup.css';
 
 function HandleNext(e) {

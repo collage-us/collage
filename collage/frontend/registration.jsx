@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Title, Button, Group } from '@mantine/core';
-import Navbar from './Navbar';
-import Landing from './Landing/Landing';
-import About from './About';
-import ForStudents from './ForStudents';
-import Support from './Support';
-import Signup from './Signup/Wrapper';
-import Login from './Login/Wrapper';
-import Search from './Search/Wrapper';
-import Home from './Home/Home';
+// import { Title, Button, Group } from '@mantine/core';
+const Navbar = lazy(() => import('./Navbar'));
+const Landing = lazy(() => import('./Landing/Landing'));
+const About = lazy(() => import('./About'));
+const ForStudents = lazy(() => import('./ForStudents'));
+const Support = lazy(() => import('./Support'));
+const Signup = lazy(() => import('./Signup/Wrapper'));
+const Login = lazy(() => import('./Login/Wrapper'));
+const Search = lazy(() => import('./Search/Wrapper'));
+const Home = lazy(() => import('./Home/Home'));
 
 export default function Registration() {
   const [loggedIn, setLoggedIn] = useState(false);

@@ -1,6 +1,7 @@
 import { Container, Grid } from "@mantine/core";
 import React, {useState, useEffect} from "react";
-import CourseBox from './CourseBox';
+// import CourseBox from './CourseBox';
+const CourseBox = lazy(() => import('./CourseBox'))
 
 const Home = ({ userId }) => {
   const [courses, setCourses] = useState([]);
