@@ -1,1 +1,1 @@
-web: web: npm run build && gunicorn wsgi:app
+web: npm run build && gunicorn wsgi:app
