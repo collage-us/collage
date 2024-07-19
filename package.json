@@ -57,6 +57,7 @@
     "@react-oauth/google": "^0.12.1",
     "@tabler/icons-react": "^3.6.0",
     "dayjs": "^1.11.10",
+    "find-cache-dir": "^5.0.0",
     "js-cookie": "^3.0.5",
     "prop-types": ">=15.8.1",
     "react": "^18.2.0",

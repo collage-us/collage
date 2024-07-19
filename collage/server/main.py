@@ -32,9 +32,11 @@ def verify_user():
     if flask.session['registered'] != True:
         return flask.jsonify(unregistered=True), 200
 
+
 @collage.app.route('/api/', methods=['GET'])
 def home():
     return flask.jsonify(working=True), 200
+
 
 @collage.app.route('/api/login/', methods=['POST'])
 def login():
@@ -106,6 +108,7 @@ def signup():
     connection.commit()
     return flask.jsonify(registered=True), 200 # also send back any other needed information later
 
+
 @collage.app.route('/api/logout/', methods=['POST'])
 @jwt_required()
 def logout():
@@ -116,6 +119,7 @@ def logout():
     # current_user = get_jwt_identity()
     print(jwt_token)
     return flask.jsonify(registered=False), 200
+
 
 @collage.app.route('/api/catalog/', methods=['POST'])
 @jwt_required()
@@ -170,6 +174,42 @@ def handle_catalog():
 
     # return the JSON of "a list of dictionaries"
     return flask.jsonify(recommendations)
+
+
+@collage.app.route('/api/courses/<int:course_id>', methods=['POST'])
+def course_backpack(course_id):
+    op = flask.request.args.get('operation')
+    user_id = flask.request.args.get('user_id')
+    connection = collage.model.get_db()
+    cursor = connection.cursor()
+
+    if op == 'save':
+        try:
+            cursor.execute('''
+                INSERT INTO saved_courses (user_id, course_id)
+                VALUES (%s, %s)
+            ''', (user_id, course_id))
+            connection.commit()
+            return flask.jsonify({'status': 'success', 'message': 'Course saved successfully'}), 200
+        except Exception as e:
+            connection.rollback()
+            return flask.jsonify({'status': 'error', 'message': str(e)}), 500
+
+    elif op == 'delete':
+        try:
+            cursor.execute('''
+                DELETE FROM saved_courses
+                WHERE user_id = %s AND course_id = %s
+            ''', (user_id, course_id))
+            connection.commit()
+            return flask.jsonify({'status': 'success', 'message': 'Course removed successfully'}), 200
+        except Exception as e:
+            connection.rollback()
+            return flask.jsonify({'status': 'error', 'message': str(e)}), 500
+
+    else:
+        return flask.jsonify({'status': 'error', 'message': 'Invalid operation'}), 400
+
 
 @collage.app.route('/api/student/<int:user_id>', methods=['GET'])
 @jwt_required()
@@ -247,10 +287,12 @@ def get_user_stats(user_id):
     finally:
         connection.close()
 
+
 @collage.app.route('/api/search/classes/<string:search_string>/<int:user_id>/', methods=['POST'])
 def search_classes(serach_string,user_id):
     #take things in as a json object
     search_params = flask.request.get_json()
+
 
 @collage.app.route('/api/test/', methods=['GET'])
 def test():
