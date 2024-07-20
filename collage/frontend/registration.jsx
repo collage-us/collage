@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy } from "react";
 // import PropTypes from "prop-types";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import { Title, Button, Group } from '@mantine/core';
