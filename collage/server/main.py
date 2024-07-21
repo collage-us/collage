@@ -11,7 +11,7 @@ from flask_cors import CORS
 import io
 from collage.server.recommend import recommend_classes
 from collage.server.dalle import generate_image, format_prompt
-from collage.server.nltk import parse_resume
+from collage.server.nltk_utils import parse_resume
 
 CORS(collage.app)
 # Initialize JWTManager
