@@ -1,7 +1,7 @@
 import React from 'react';
 import { Center, Text, Box } from '@mantine/core';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import '../CSS/Home.css';
+import '../CSS/Landing.css';
 import background2 from '../images/background-2.png';
 import greenLogo from '../images/green-logo.png';
 import blueLogo from '../images/blue-logo.png';

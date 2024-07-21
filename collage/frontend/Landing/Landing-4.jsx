@@ -4,7 +4,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Link } from 'react-router-dom';
 import lastBackground from '../images/last-background.png';
 import logo from '../images/collage-logo.png';
-import '../CSS/Home.css';
+import '../CSS/Landing.css';
 
 const Landing4 = () => {
   return <>

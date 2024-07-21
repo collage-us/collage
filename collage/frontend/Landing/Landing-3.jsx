@@ -1,8 +1,8 @@
 import React from 'react';
-import { Center, Text, Box, Image } from '@mantine/core';
+import { Center, Text, Box } from '@mantine/core';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import background3 from '../images/background-3.png';
-import '../CSS/Home.css';
+import '../CSS/Landing.css';
 
 const Landing3 = () => {
   return <>

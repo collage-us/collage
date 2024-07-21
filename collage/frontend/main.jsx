@@ -1,5 +1,5 @@
-import React, { useState, useEffect, lazy } from "react";
-import {createTheme, MantineProvider, rem} from '@mantine/core';
+import React, { lazy } from "react";
+import {MantineProvider} from '@mantine/core';
 import { createRoot } from "react-dom/client";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import '@mantine/core/styles.css';
