@@ -16,6 +16,7 @@ replace with your response
 - [ ] I have commented my code, particularly in hard-to-understand areas
 - [ ] I have made necessary corresponding changes (if needed) to the documentation
 - [ ] My changes generate no new warnings
+- [ ] I have updated Python `requirements.txt` and/or JS packages (if needed)
 
 > After making the PR, plase check:
 > You have checked that the program builds successfully on **Heroku** CI/CD, and
