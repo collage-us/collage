@@ -1,5 +1,5 @@
 import { Container, Grid } from "@mantine/core";
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, lazy} from "react";
 // import CourseBox from './CourseBox';
 const CourseBox = lazy(() => import('./CourseBox'))
 
