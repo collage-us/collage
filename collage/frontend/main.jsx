@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, lazy } from "react";
 import {createTheme, MantineProvider, rem} from '@mantine/core';
 import { createRoot } from "react-dom/client";
 import { GoogleOAuthProvider } from "@react-oauth/google";

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, lazy} from 'react';
 // import { Link } from 'react-router-dom';
 import { Popover, Checkbox, CheckboxGroup, Stack, TextInput, Title, Button, ActionIcon, rem } from '@mantine/core';
 import { IconSearch, IconUsers, IconBell, IconMessageDots, IconMoodSmileBeam } from '@tabler/icons-react';

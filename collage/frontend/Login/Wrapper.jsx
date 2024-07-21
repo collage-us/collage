@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, lazy } from 'react';
 // import {Alert} from 'react-alert';
 import { Link, redirect, useNavigate } from 'react-router-dom';
 import { Title, Dialog, Text} from '@mantine/core';

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, lazy} from 'react';
 import { Link } from 'react-router-dom';
 import { Title, Button, ActionIcon } from '@mantine/core';
 import { IconCircleChevronRight, IconCircleChevronLeft } from '@tabler/icons-react';
