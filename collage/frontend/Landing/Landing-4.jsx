@@ -1,5 +1,6 @@
 import React from 'react';
-import { Center, Image , Text, Box, TextInput, Button, Title } from '@mantine/core';
+import { Text, Box, TextInput } from '@mantine/core';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Link } from 'react-router-dom';
 import lastBackground from '../images/last-background.png';
 import logo from '../images/collage-logo.png';
@@ -8,7 +9,7 @@ import '../CSS/Home.css';
 const Landing4 = () => {
   return <>
     <Box style={{width: '100vw', height: '100vh', overflow: 'hidden'}} className="landing-page-box">
-      <Image radius="md" style={{height: '100%', width: '100%', objectFit: 'cover'}} src={lastBackground} className="main-background-image"/>
+      <LazyLoadImage radius="md" style={{height: '100%', width: '100%', objectFit: 'cover'}} src={lastBackground} className="main-background-image"/>
       <div
         style={{
           position: 'absolute',
@@ -21,7 +22,7 @@ const Landing4 = () => {
         }}
       ></div>
       <div className="end-background">
-        <Image style={{ width: '2vw'}} src={logo} className="logo-image"/>
+        <LazyLoadImage style={{ width: '2vw'}} src={logo} className="logo-image"/>
         <Text style={{ fontFamily:'Judson', fontSize: '1.6vw' }} fw={700} className="end-title">Build your college<br />experience on Collage</Text>
         <TextInput placeholder="First Name" size="lg" className="first-name-text-box"
           styles={
