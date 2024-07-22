@@ -25,6 +25,7 @@ CREATE TABLE courses (
     course_name VARCHAR(255) NOT NULL,
     course_description TEXT NOT NULL,
     class_topic VARCHAR(255) NOT NULL,
+    enrollment_status VARCHAR(255),
     ai_img_url VARCHAR(255),
     FOREIGN KEY (instructor_id) REFERENCES instructors(instructor_id) ON DELETE CASCADE
 );
