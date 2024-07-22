@@ -1,7 +1,7 @@
-import React, {useRef} from 'react';
-import { Button, Group, Text, rem } from '@mantine/core';
+import React from 'react';
+import { Group, Text, rem } from '@mantine/core';
 import { IconUpload, IconX} from '@tabler/icons-react';
-import { Dropzone, DropzoneProps, IMAGE_MIME_TYPE } from '@mantine/dropzone';
+import { Dropzone, IMAGE_MIME_TYPE } from '@mantine/dropzone';
 
 const Signup4 = () => {
   return (

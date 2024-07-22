@@ -1,5 +1,5 @@
 import React, {lazy} from 'react';
-import '../CSS/Home.css';
+import '../CSS/Landing.css';
 const Home1 = lazy(() => import('./Landing-1'));
 const Home2 = lazy(() => import('./Landing-2'));
 const Home3 = lazy(() => import('./Landing-3'));
