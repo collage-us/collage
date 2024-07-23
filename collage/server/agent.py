@@ -51,10 +51,6 @@ courses_database: List[Dict] = {
     }
 }
 
-@collage.app.route('/api/agent/<question>', methods=['GET'])
-def get_agent_response(question):
-    pass
-
 
 # Function to retrieve student information from the database
 def get_student_info(student_id: str) -> Dict[str, Any]:
