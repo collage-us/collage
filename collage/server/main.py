@@ -279,7 +279,7 @@ def get_user_stats(user_id):
         else:
             response = {'error': 'Invalid operation specified'}
 
-        return flask.jsonify({"flag": "hello there"})
+        return flask.jsonify(response)
 
     except Exception as e:
         return flask.jsonify({'error': str(e)}), 500
