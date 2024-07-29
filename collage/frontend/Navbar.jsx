@@ -7,7 +7,7 @@ import Cookies from 'js-cookie';
 
 const Navbar = ({loggedIn, setLoggedIn, registered, setRegistered}) => {
   const location = useLocation();
-  const hiddenPaths = ['/login', '/signup'];
+  const hiddenPaths = ['/login', '/signup', '/search'];
 
   const handleLogout = async () => {
     var response = await fetch("/api/logout/", {

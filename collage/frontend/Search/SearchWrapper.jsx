@@ -1,9 +1,9 @@
 import React, {useState, lazy} from 'react';
 // import { Link } from 'react-router-dom';
 import { Popover, Checkbox, CheckboxGroup, Stack, TextInput, Title, Button, ActionIcon, rem } from '@mantine/core';
-import { IconSearch, IconUsers, IconBell, IconMessageDots, IconMoodSmileBeam } from '@tabler/icons-react';
+import { IconSearch, IconUsers, IconBell, IconMessageDots, IconMoodSmileBeam, IconChevronDown } from '@tabler/icons-react';
 import '@mantine/core/styles/Button.css'
-import '../Styles/Search.css';
+import '../CSS/Search.css';
 // import ClassCard from './Class-Card';
 const ClassCard = lazy(() => import('./Class-Card'));
 
@@ -20,21 +20,27 @@ const Search = () => {
         <div>
             <div>
                 <TextInput
+                    // variant="filled"
+                    styles={{
+                        // input: { backgroundColor: '#D9D9D9' },
+                        section: {color: 'black'}
+                    }}
                     onKeyDown={(e) => {if(e.key==='Enter'){console.log(search);}}}
                     value={search}
                     onChange={(e) => setSearch(e.currentTarget.value)}
                     leftSection={searchIcon}
+                    radius="xl"
                     placeholder="Search"/>
-                <ActionIcon>
+                <ActionIcon color="#D9D9D9" radius="md" size="lg">
                     <IconUsers stroke="1.5" color="black"/>
                 </ActionIcon>
-                <ActionIcon>
+                <ActionIcon color="#D9D9D9" radius="md" size="lg">
                     <IconBell stroke="1.5" color="black"/>
                 </ActionIcon>
-                <ActionIcon>
+                <ActionIcon color="#D9D9D9" radius="md" size="lg">
                     <IconMessageDots stroke="1.5" color="black"/>
                 </ActionIcon>
-                <ActionIcon>
+                <ActionIcon color="#D9D9D9" radius="md" size="lg">
                     <IconMoodSmileBeam stroke="1.5" color="black"/>
                 </ActionIcon>
             </div>
@@ -43,7 +49,11 @@ const Search = () => {
             {filters.map((filter) => <Button key={filter}>{filter}</Button>)}
             <Popover width={300} opened={opened} closeOnClickOutside={false} closeOnEscape={false} onClose={() => setOpened(false)} trapFocus position="bottom" withArrow shadow="md">
             <Popover.Target>
-                <Button onClick={() => setOpened(true)}>Filters</Button>
+                <Button 
+                    styles={{root: {color: "black"}}} autoContrast="false" variant="filled" color="#D9D9D9" 
+                    radius="xl" onClick={() => setOpened(true)} rightSection={<IconChevronDown size={14} />}>
+                    All Filters
+                </Button>
             </Popover.Target>
             <Popover.Dropdown>
             <CheckboxGroup value={value} onChange={setValue}>

@@ -9,8 +9,8 @@ const ForStudents = lazy(() => import('./ForStudents'));
 const Support = lazy(() => import('./Support'));
 const Signup = lazy(() => import('./Signup/Wrapper'));
 const Login = lazy(() => import('./Login/Wrapper'));
-const Search = lazy(() => import('./Search/Wrapper'));
-const Home = lazy(() => import('./Home/Home'));
+const Search = lazy(() => import('./Search/SearchWrapper'));
+const Catalog = lazy(() => import('./Search/Catalog'));
 
 export default function Registration() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -26,10 +26,10 @@ export default function Registration() {
               <Route path="/about" element={<About />} />
               <Route path="/forstudents" element={<ForStudents />} />
               <Route path="/support" element={<Support />} />
-              <Route path="/search" element={<Search />} />
+              <Route path="/search" element={<Catalog />} />
               <Route path="/login" element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} registered={registered} setRegistered={setRegistered}/>} />
               <Route path="/signup" element={<Signup setLoggedIn={setLoggedIn} setRegistered={setRegistered}/>} />
-              <Route path="/home" element={<Home userId={1}/>}></Route>
+              {/* <Route path="/home" element={<Home userId={1}/>}></Route> */}
             </Routes>
           </div>
         </Router>
