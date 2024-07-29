@@ -2,7 +2,7 @@
     height: 100vh;
     width: 100vw;
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 1fr 4fr;
     grid-template-rows: 1fr;
 }
 
@@ -18,6 +18,10 @@
     grid-row-start: 1;
 }
 
-.display-grid{
-    
+.wrapper-grid{
+    display: grid;
+    column-gap: 10px;
+    row-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr auto;
 }
