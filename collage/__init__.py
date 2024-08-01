@@ -17,4 +17,4 @@ def create_app():
 
 import collage.server
 import collage.views
-# import collage.model
+import collage.model

@@ -296,7 +296,18 @@ def search_classes(serach_string,user_id):
 
 @collage.app.route('/api/test/', methods=['GET'])
 def test():
-    """A test endpoint for checking whether backend Python code can be compiled."""
+    conn = collage.model.get_db()
+
+    # Create a cursor object
+    cursor = conn.cursor()
+
+    # Execute a query
+    cursor.execute("SHOW TABLES")
+
+    # Fetch and print results
+    for table in cursor:
+        print(table)
+
     return flask.jsonify({"flag": "success"})
 
 
