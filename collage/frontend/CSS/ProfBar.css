@@ -1,0 +1,90 @@
+.background-container {
+  height: 100vh;
+  position: relative;
+  background-color: white;
+}
+
+.gray-part{
+  background-color: #404040;
+  width: 100%;
+  height: 30vh;
+  min-height: 210px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.full-bar{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.header-container{
+  margin-top: 22%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.collage-header{
+  width: 50%;
+  height: auto;
+}
+
+.prof-pic{
+  border-radius: 50%;
+  border: 1px solid black;
+  margin-top: 10vh;
+  width: 40%;
+}
+
+.social-grid{
+  width: 100%;
+  padding-left: 7%;
+  padding-right: 7%;
+  padding-top: 5%;
+  border-top: 1px solid #ECECEC;
+
+  display: grid;
+  justify-content: space-between;
+  row-gap: 5px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto;
+}
+
+.social-titles{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+
+  white-space: nowrap;
+
+  justify-self: start;
+}
+
+.social-stats{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+
+  justify-self: end;
+}
+
+.registration-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.registration-time{
+  font-size: 1rem;
+  margin: 0 10% 0 10%;
+  padding: 15px 15px 15px 15px;
+  background-color: #9A9A9A;
+  color: white;
+  border-radius: 50px;
+}
+
