@@ -1,10 +1,18 @@
 import React from 'react';
-import { TextInput, PasswordInput } from '@mantine/core';
+import { TextInput, NumberInput } from '@mantine/core';
 import '../CSS/Signup.css';
 
-const Signup2 = ({email, setEmail, password, setPassword, confirmPassword, setConfirmPassword, valid, setValid}) => {
+const Signup2 = ({major, setMajor, startYear, setStartYear, gradYear, setGradYear, valid, setValid}) => {
+  const checkValid = (e) => {
+    if (major !== ''){
+      setValid(true);
+    }
+    else{
+      setValid(false);
+    }
+  }
   return <div>
-    <TextInput  value={email} onChange={(e) => setEmail(e.currentTarget.value)} required label="Come up with a good password!" placeholder="Email (.edu email only)" size="lg"
+    <TextInput value={major} onChange={(e) => {setMajor(e.currentTarget.value); checkValid(e);}} required label="What's your major and year?" placeholder="Major (intended or declared)" size="lg"
                 styles={
                   {
                     label: {fontSize: 24, textAlign: 'left', alignContent: 'left'},
@@ -12,33 +20,36 @@ const Signup2 = ({email, setEmail, password, setPassword, confirmPassword, setCo
                   }
                 }/>
       <br/>
-      <PasswordInput value={password} onChange={(e) => setPassword(e.currentTarget.value)} placeholder="Password" size="lg"
-        styles={
-          {
-            label: {fontSize: 24, textAlign: 'left', alignContent: 'left'},
-            input: {fontSize: 20}
-          }
-        }/>
-      <br/>
-      <PasswordInput value={confirmPassword} onChange={(e) => setConfirmPassword(e.currentTarget.value)} placeholder="Re-enter Password" size="lg"
-        styles={
-          {
-            label: {fontSize: 24, textAlign: 'left', alignContent: 'left'},
-            input: {fontSize: 20}
-          }
-        }/>
-      <br/>
-      <p className="passwordText">
-        • At least 8 characters
-        <br/>
-        • One letter and one number
-      </p>
-  </div>
-  // first textinput is Label: Come up with a good password! Placeholder: Email (.edu email only) and required
-  // second password input is no label, Placeholder: Password and required and see password option
-  // third password input is no label, Placeholder: Re-enter password and required with requirement labels: * At least 8 characters and * One letter and one number
-  // need to figure out how to make it turn red when it doesnt match
-  // include strength meter for passwords
+      <div className='dropDownLine'>
+        <div className='dropDown1'>
+        <NumberInput value={startYear} onChange={setStartYear} label="Start year" size="lg"
+                  styles={
+                    {
+                      label: {fontSize: 20, textAlign: 'left', alignContent: 'left', color: '#5d5d5d'},
+                      input: {fontSize: 20}
+                    }
+                  }
+                  min={2020}
+                  max={2025}
+        />
+        </div>
+        <div className='dropDown2'>
+        <NumberInput value={gradYear} onChange={setGradYear} label="Expected End Year" size="lg"
+                  styles={
+                    {
+                      label: {fontSize: 20, textAlign: 'left', alignContent: 'left', color: '#5d5d5d'},
+                      input: {fontSize: 20}
+                    }
+                  }
+                  min={2025}
+                  max={2032}
+        />
+        </div>
+      </div>
+  </div>;
+  //first text input is required with Label: What's your major and year? Placeholder: Major (intended or declared)
+  //next is two side by side native selects with the start and grad years, both are required
+  //error occurs if end year is less than start year
 };
 
 export default Signup2;

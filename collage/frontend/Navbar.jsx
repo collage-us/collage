@@ -55,18 +55,15 @@ const Navbar = ({loggedIn, setLoggedIn, registered, setRegistered}) => {
         <li className="link-3">
           <Link to="/search" className="support">Search</Link>
         </li>
-        {!loggedIn && <li className='link-4'>
-          <Link to="/login" className="login">Log in</Link>
-        </li>}
         {!loggedIn && <li className='link-5'>
-          <Link to="/signup" className="signup">Sign up</Link>
+          <Link to="/login" className="login">Get Started</Link>
         </li>}
-        {loggedIn && <li className='link-4'>
+        {/* {!loggedIn && <li className='link-5'>
+          <Link to="/signup" className="signup">Sign up</Link>
+        </li>} */}
+        {loggedIn && <li className='link-5'>
           <button className="login" onClick={handleLogout}>Log Out</button>
         </li>}
-        <li className='link-6'>
-          <Link to="/home" className="home">Home</Link>
-        </li>
       </ul>
     </nav>
   );
