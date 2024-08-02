@@ -5,33 +5,33 @@ import fullLogo from '../images/full-logo.png';
 import '../CSS/ProfBar.css';
 
 const Profile = ({ userId, operation }) => {
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
+  // const [data, setData] = useState(null);
+  // const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`/api/student/${userId}?operation=${operation}`);
-        const result = await response.json();
-        if (response.ok ){
-          setData(result);
-        } else{
-          setError(result.error);
-        }
-      } catch (error) {
-        setError(error.toString());
-      }
-    };
-    fetchData();
-  }, [userId, operation])
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await fetch(`/api/student/${userId}?operation=${operation}`);
+  //       const result = await response.json();
+  //       if (response.ok ){
+  //         setData(result);
+  //       } else{
+  //         setError(result.error);
+  //       }
+  //     } catch (error) {
+  //       setError(error.toString());
+  //     }
+  //   };
+  //   fetchData();
+  // }, [userId, operation])
 
-  if (error){
-    return <div>Error: {error}</div>;
-  }
+  // if (error){
+  //   return <div>Error: {error}</div>;
+  // }
 
-  if (!data){
-    return <div>Loading...</div>;
-  }
+  // if (!data){
+  //   return <div>Loading...</div>;
+  // }
 
   return(
     <div>
