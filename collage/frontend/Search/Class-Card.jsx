@@ -1,14 +1,26 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
-import { Title, Button, ActionIcon } from '@mantine/core';
-import { IconCircleChevronRight, IconCircleChevronLeft } from '@tabler/icons-react';
+import {Card, Image, Text, Group} from '@mantine/core';
 import '@mantine/core/styles/Button.css'
 import '../CSS/Search.css';
 
 const ClassCard = ({data}) => {
   return(
-    <div>
-        {data}
+    <div className='card'>
+      <Card shadow="sm" padding="lg" radius="lg" withBorder onClick={()=>alert('hello')} styles={{root: {backgroundColor: data.color}}}>
+        <Card.Section>
+          <div className='card-header'>
+            <Text fw={700} ta="center" size="xl">{data.courseNumber}</Text>
+            <Text fw={300} ta="center">{data.courseName}</Text>
+          </div>
+        </Card.Section>
+        <Card.Section>
+          <Image
+            src={data.img}
+            height={160}
+            alt="Norway"
+          />
+        </Card.Section>
+      </Card>
     </div>
   )
 };

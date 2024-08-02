@@ -1,8 +1,6 @@
 import { Container, Grid } from "@mantine/core";
 import React, {useState, useEffect, lazy} from "react";
 import '../CSS/Search.css';
-// import CourseBox from './CourseBox';
-const CourseBox = lazy(() => import('./CourseBox'))
 const ProfileBar = lazy(() => import('./ProfileBar'))
 const SearchWrapper = lazy(() => import('./SearchWrapper'))
 
@@ -45,15 +43,6 @@ const Catalog = ({ userId }) => {
         <SearchWrapper/>
       </div>
     </div>
-    // <Container>
-    //   <Grid>
-    //     {courses.map((course) => (
-    //       <Grid.Col span={4} key={course.course_id}>
-    //         <CourseBox course={course} />
-    //       </Grid.Col>
-    //     ))}
-    //   </Grid>
-    // </Container>
   );
 };
 

@@ -1,12 +1,9 @@
 import React, { useState, lazy } from 'react';
-// import {Alert} from 'react-alert';
 import { Link, useNavigate } from 'react-router-dom';
-import { Title, Dialog, Text} from '@mantine/core';
-// import {Check, X, AlertCircle} from '@tabler/icons-react';
-// import Login1 from './Login-1';
-const Login1 = lazy(() => import('./Login-1'))
+import { Title, Dialog, Text, TextInput, Button} from '@mantine/core';
 import { useGoogleLogin } from "@react-oauth/google";
 import '../CSS/Signup.css';
+import googleLogo from '../images/google-logo.png';
 
 async function getUserInfo(codeResponse) {
   var response = await fetch("/api/login/", {
@@ -66,20 +63,31 @@ const Login = ({loggedIn, setLoggedIn, registered, setRegistered}) => {
       <div className="collageTitle">
         <Link to="/"><Title order={1}>Collage</Title></Link>
       </div>
-      <div className="wrapperBox">
+      <div className="wrapperBoxLogin">
         <div className="wrapperNav"></div>
         <div className="wrapperTitle">
-          <Title order={2}>Welcome back!</Title>
+          <Title order={2}>Login or Register</Title>
         </div>
-        <div className="wrapperContent">
-          <Login1 />
-        </div>
-        <div className="wrapperFooter">
-          <button className="bottomButton" onClick={() => googleLogin()}>Log In</button>
+        <div className="wrapperContentLogin">
+          <TextInput
+          placeholder="Full Name"
+          size="lg"
+          styles={{
+            label: { fontSize: 24, textAlign: 'left', alignContent: 'left' },
+            input: { fontSize: 20 },
+          }}
+          />
           <br />
-          <p className="bottomText">
-            Don't have an account? <Link to="/signup">Sign Up</Link>
-          </p>
+          <TextInput
+            placeholder="University Name"
+            size="lg"
+            styles={{
+              label: { fontSize: 24, textAlign: 'left', alignContent: 'left' },
+              input: { fontSize: 20 },
+            }}
+          />
+          <br />
+          <Button variant='default' fullWidth size='lg' radius='xl' leftSection={<img src={googleLogo}/>} rightSection={<span/>} onClick={() => googleLogin()}>Continue with Google</Button>
         </div>
       </div>
     </div>

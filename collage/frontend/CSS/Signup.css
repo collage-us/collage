@@ -58,6 +58,30 @@
   content: "";
 }
 
+.wrapperBoxLogin {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 2fr 4fr 3fr;
+  background-color: #fffcfc;
+  border-radius: 5%;
+  width: 580px;
+  height: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wrapperContentLogin {
+  grid-row-start: 3;
+  grid-row-end: 4;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3%;
+  width: 70%;
+  height: 90%;
+  text-align: left;
+}
+
 .wrapperNav {
   margin-top: 3%;
   grid-row-start: 1;

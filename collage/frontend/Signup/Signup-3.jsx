@@ -1,47 +1,84 @@
-import React from 'react';
-import { TextInput, NumberInput } from '@mantine/core';
-import '../CSS/Signup.css';
+import React, {useState} from 'react';
+import { Group, Text, rem } from '@mantine/core';
+import { IconUpload, IconX} from '@tabler/icons-react';
+import { Dropzone, PDF_MIME_TYPE } from '@mantine/dropzone';
 
-const Signup3 = ({major, setMajor, startYear, setStartYear, gradYear, setGradYear, valid, setValid}) => {
-  return <div>
-    <TextInput value={major} onChange={(e) => setMajor(e.currentTarget.value)} required label="What's your major and year?" placeholder="Major (intended or declared)" size="lg"
-                styles={
-                  {
-                    label: {fontSize: 24, textAlign: 'left', alignContent: 'left'},
-                    input: {fontSize: 20}
-                  }
-                }/>
-      <br/>
-      <div className='dropDownLine'>
-        <div className='dropDown1'>
-        <NumberInput value={startYear} onChange={(e) => setStartYear(e.currentTarget.value)} label="Start year" size="lg"
-                  styles={
-                    {
-                      label: {fontSize: 20, textAlign: 'left', alignContent: 'left', color: '#5d5d5d'},
-                      input: {fontSize: 20}
-                    }
-                  }
-                  min={2020}
-                  max={2025}
-        />
-        </div>
-        <div className='dropDown2'>
-        <NumberInput value={gradYear} onChange={(e) => setGradYear(e.currentTarget.value)} label="Expected End Year" size="lg"
-                  styles={
-                    {
-                      label: {fontSize: 20, textAlign: 'left', alignContent: 'left', color: '#5d5d5d'},
-                      input: {fontSize: 20}
-                    }
-                  }
-                  min={startYear}
-                  max={startYear+8}
-        />
-        </div>
-      </div>
-  </div>;
-  //first text input is required with Label: What's your major and year? Placeholder: Major (intended or declared)
-  //next is two side by side native selects with the start and grad years, both are required
-  //error occurs if end year is less than start year
+const Signup3 = ({setResumeFile, setTranscriptFile}) => {
+  const [resume, setResume] = useState();
+  const [transcript, setTranscript] = useState();
+  const [resumeText, setResumeText] = useState('Click to select a file or drag here');
+  const [transcriptText, setTranscriptText] = useState('Click to select a file or drag here');
+  return (
+    <div className='dropZone'>
+    <Text size="xl">Upload your resume:</Text>
+    <Dropzone
+      multiple={false}
+      style={{height: "40%", color: '#5d5d5d' }}
+      onDrop={(files) => {console.log('accepted files', files); setResume(files); setResumeFile(files[0]); setResumeText('Current file: ' + files[0].path);}}
+      onReject={(files) => console.log('rejected files', files)}
+      maxSize={5 * 1024 ** 2}
+      accept={PDF_MIME_TYPE}
+    >
+      <Group justify="center" gap="xl" mih={60} style={{ pointerEvents: 'none' }}>
+        <Dropzone.Accept>
+          {resumeText !== 'Click to select a file or drag here' && <IconUpload
+            style={{ width: rem(52), height: rem(52), color: 'var(--mantine-color-blue-6)' }}
+            stroke={1.5}
+          />}
+        </Dropzone.Accept>
+        <Dropzone.Reject>
+          <IconX
+            style={{ width: rem(52), height: rem(52), color: 'var(--mantine-color-red-6)' }}
+            stroke={1.5}
+          />
+        </Dropzone.Reject>
+        <Dropzone.Idle>
+          <IconUpload
+            style={{ width: rem(52), height: rem(52), color: 'var(--mantine-color-dimmed)' }}
+            stroke={1.5}
+          />
+        </Dropzone.Idle>
+          <Text size="md">
+            {resumeText}
+          </Text>
+      </Group>
+    </Dropzone>
+    <Text size="xl">Upload your transcript:</Text>
+    <Dropzone
+      multiple={false}
+      style={{height: "40%", color: '#5d5d5d' }}
+      onDrop={(files) => {console.log('accepted files', files); setTranscript(files); setTranscriptFile(files[0]); setTranscriptText('Current file: ' + files[0].path);}}
+      onReject={(files) => console.log('rejected files', files)}
+      maxSize={5 * 1024 ** 2}
+      accept={PDF_MIME_TYPE}
+    >
+      <Group justify="center" gap="xl" mih={60} style={{ pointerEvents: 'none' }}>
+        <Dropzone.Accept>
+          <IconUpload
+            style={{ width: rem(52), height: rem(52), color: 'var(--mantine-color-blue-6)' }}
+            stroke={1.5}
+          />
+        </Dropzone.Accept>
+        <Dropzone.Reject>
+          <IconX
+            style={{ width: rem(52), height: rem(52), color: 'var(--mantine-color-red-6)' }}
+            stroke={1.5}
+          />
+        </Dropzone.Reject>
+        <Dropzone.Idle>
+          <IconUpload
+            style={{ width: rem(52), height: rem(52), color: 'var(--mantine-color-dimmed)' }}
+            stroke={1.5}
+          />
+        </Dropzone.Idle>
+          <Text size="md">
+            {transcriptText}
+          </Text>
+      </Group>
+    </Dropzone>
+    </div>
+  );
+  // two file inputs using the dropzone extension
 };
 
 export default Signup3;
