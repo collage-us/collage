@@ -6,10 +6,11 @@ import '@mantine/core/styles/Button.css';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 import { ref, getStorage, getDownloadURL, uploadBytesResumable } from "firebase/storage";
+import Cookies from 'js-cookie';
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
-    apiKey: REACT_APP_API_KEY,
+    apiKey: "replace-with-actual-api-key",
     authDomain: "collage-849c3.firebaseapp.com",
     projectId: "collage-849c3",
     storageBucket: "collage-849c3.appspot.com",
@@ -56,43 +57,64 @@ const Signup = () => {
     }
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const storageRef = ref(storage, resumeFile.path);
-    const uploadTask = uploadBytesResumable(storageRef, resumeFile);
-    console.log('uploading files');
-    uploadTask.on("state_changed", (snapshot) => {
-        const prog = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+    if (resumeFile){
+        const storageRef = ref(storage, resumeFile.path);
+        const uploadTask = uploadBytesResumable(storageRef, resumeFile);
+        console.log('uploading files');
+        uploadTask.on("state_changed", (snapshot) => {
+            const prog = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            );
+            // Don't fetch downloadURL here, just track progress
+        },
+        (err) => console.log(err),
+        () => {
+            // Get download URL here
+            getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+            console.log(url)
+            })
+        }
         );
-        // Don't fetch downloadURL here, just track progress
-      },
-      (err) => console.log(err),
-      () => {
-        // Get download URL here
-        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-          console.log(url)
-        })
-      }
-    );
-    const storageRef1 = ref(storage, transcriptFile.path);
-    const uploadTask1 = uploadBytesResumable(storageRef1, transcriptFile);
-    console.log('uploading files');
-    uploadTask1.on("state_changed", (snapshot) => {
-        const prog = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+    }
+    if (transcriptFile){
+        const storageRef1 = ref(storage, transcriptFile.path);
+        const uploadTask1 = uploadBytesResumable(storageRef1, transcriptFile);
+        console.log('uploading files');
+        uploadTask1.on("state_changed", (snapshot) => {
+            const prog = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            );
+            // Don't fetch downloadURL here, just track progress
+        },
+        (err) => console.log(err),
+        () => {
+            // Get download URL here
+            getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+            console.log(url)
+            })
+        }
         );
-        // Don't fetch downloadURL here, just track progress
-      },
-      (err) => console.log(err),
-      () => {
-        // Get download URL here
-        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-          console.log(url)
-        })
-      }
-    );
-    navigate("/");
+    }
+    var response = await fetch("/api/signup/", {
+        method: "POST",
+        credentials: "include",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${Cookies.get('access_token')}`,
+        }, 
+        body: JSON.stringify({full_name: firstName + " " + lastName,
+                              start_year: startYear,
+                              graduation_year: gradYear,
+                              enrollment_date: '2020-11-11',
+                              credits_completed: 60,
+                              temporary_keywords: 'science',
+                              major: major
+        }),
+      },)
+      .then((response) => {setRegistered(true); setLoggedIn(true); navigate("/");});
   }
 
   return <div className="wrapper">

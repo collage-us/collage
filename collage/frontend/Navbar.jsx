@@ -31,7 +31,6 @@ const Navbar = ({loggedIn, setLoggedIn, registered, setRegistered}) => {
   if(hiddenPaths.includes(location.pathname)){
     return null;
   }
-
   return (
     <nav>
       <ul>
@@ -52,9 +51,9 @@ const Navbar = ({loggedIn, setLoggedIn, registered, setRegistered}) => {
         <li className="link-3">
           <Link to="/support" className="support">Support</Link>
         </li>
-        <li className="link-3">
+        {loggedIn && <li className="link-3">
           <Link to="/search" className="support">Search</Link>
-        </li>
+        </li>}
         {!loggedIn && <li className='link-5'>
           <Link to="/login" className="login">Get Started</Link>
         </li>}

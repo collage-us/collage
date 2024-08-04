@@ -17,7 +17,7 @@ const root = createRoot(document.getElementById("reactEntry"));
 root.render(
   <MantineProvider theme={{
     fontFamily: 'DM Sans'}}>
-      <GoogleOAuthProvider clientId="Replace with GOOGLE ID here">
+      <GoogleOAuthProvider clientId="717882630767-4ai5cm1ilncubomf61nr01r82m0gscps.apps.googleusercontent.com">
         <Registration/>
       </GoogleOAuthProvider>
   </MantineProvider>
