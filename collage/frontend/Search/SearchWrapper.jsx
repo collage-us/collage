@@ -1,9 +1,10 @@
-import React, {useState, lazy} from 'react';
+import React, {useState, lazy, useEffect} from 'react';
 // import { Link } from 'react-router-dom';
 import { Popover, Checkbox, CheckboxGroup, ScrollArea, TextInput, Title, Button, ActionIcon, rem, Group, Text } from '@mantine/core';
-import { IconSearch, IconUsers, IconBell, IconMessageDots, IconMoodSmileBeam, IconChevronDown } from '@tabler/icons-react';
+import { IconSearch, IconUsers, IconBell, IconMessageDots, IconMoodSmileBeam, IconChevronDown, IconChevronUp } from '@tabler/icons-react';
 import '@mantine/core/styles/Button.css'
 import '../CSS/Search.css';
+import Cookies from 'js-cookie';
 // import ClassCard from './Class-Card';
 const ClassCard = lazy(() => import('./Class-Card'));
 
@@ -18,17 +19,24 @@ const Search = () => {
     const [page, setPage] = useState(0);
     const [results, setResults] = useState([]);
     const [search, setSearch] = useState("");
-    const [currData, setCurrData] = useState([
-                {id: 1, courseNumber: "Econ 101", courseName: "Principles of economics I", color: "#FF7C7C", img: "https://images.unsplash.com/photo-1587691592099-24045742c181?q=80&w=2946&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"},
-                {id: 1, courseNumber: "Econ 101", courseName: "Principles of economics II", color: "red", img: "https://lh3.googleusercontent.com/d/1-kRA35fv-D5Dc6kC6hL6O6_H60UWD9fp=s220"},
-                {id: 1, courseNumber: "Econ 101", courseName: "Principles of economics III", color: "red", img: "https://images.unsplash.com/photo-1587691592099-24045742c181?q=80&w=2946&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"},
-                {id: 1, courseNumber: "Econ 101", courseName: "Principles of economics IV", color: "red", img: "https://images.unsplash.com/photo-1587691592099-24045742c181?q=80&w=2946&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"},
-                {id: 1, courseNumber: "Econ 101", courseName: "Principles of economics V", color: "red", img: "https://images.unsplash.com/photo-1587691592099-24045742c181?q=80&w=2946&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"},
-                {id: 1, courseNumber: "Econ 101", courseName: "Principles of economics VI", color: "red", img: "https://images.unsplash.com/photo-1587691592099-24045742c181?q=80&w=2946&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"},
-                {id: 1, courseNumber: "Econ 101", courseName: "Principles of economics VII", color: "red", img: "https://images.unsplash.com/photo-1587691592099-24045742c181?q=80&w=2946&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"},
-                {id: 1, courseNumber: "Econ 101", courseName: "Principles of economics VIII", color: "red", img: "https://images.unsplash.com/photo-1587691592099-24045742c181?q=80&w=2946&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"},
-                {id: 1, courseNumber: "Econ 101", courseName: "Principles of economics IX", color: "red", img: "https://images.unsplash.com/photo-1587691592099-24045742c181?q=80&w=2946&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"}
-            ]);
+    const [currData, setCurrData] = useState([]);
+    const handleSearch = async () => {
+        const result = await fetch("/api/search/", {
+            method: "POST",
+            credentials: "include",
+            mode: "cors",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${Cookies.get('access_token')}`,
+            }, 
+            body: JSON.stringify({search_string: search,
+                                  filters: filters
+            }),
+          },)
+          .then((response) => response.json())
+          .then((data) => {console.log(data); setCurrData(data);});
+    }
+    useEffect(() => {handleSearch()}, [filters]);
     return(
         <>
         <div className="search">
@@ -40,7 +48,7 @@ const Search = () => {
                             section: {color: 'black'},
                             root: {width: '55vw'}
                         }}
-                        onKeyDown={(e) => {if(e.key==='Enter'){console.log(search);}}}
+                        onKeyDown={(e) => {if(e.key==='Enter'){handleSearch();}}}
                         value={search}
                         onChange={(e) => setSearch(e.currentTarget.value)}
                         leftSection={searchIcon}
@@ -51,27 +59,28 @@ const Search = () => {
                 <Popover.Target>
                     <Button 
                         styles={{root: {color: "black"}}} autoContrast="false" variant="filled" color="#D9D9D9" 
-                        radius="xl" onClick={() => {if (opened === false) {setOpened(true); console.log("opening")} else {setOpened(false); setValue(filters);}}} rightSection={<IconChevronDown size={14} />}>
+                        radius="xl" onClick={() => {if (opened === false) {setOpened(true); console.log("opening")} else {setOpened(false); setValue(filters);}}} rightSection={opened ? <IconChevronUp size={14} /> : <IconChevronDown size={14} />}>
                         All Filters
                     </Button>
                 </Popover.Target>
-                <Popover.Dropdown  styles={{dropdown: {color: "black", backgroundColor: "gray"}}} radius="md">
+                <Popover.Dropdown  styles={{dropdown: {color: "black", backgroundColor: "white"}}} radius="md">
                 {/* Change the checkdowns below based on backend filters from db in the future. 
                 It will take some design to figure it out once we have classes and categories */}
                 <CheckboxGroup value={value} onChange={setValue}>
                     <Text ta="center">School</Text>
                     <div className='filter-borders'>
                         <ScrollArea h={100} offsetScrollbars>
-                            <Checkbox value="architecture" label="Architecture" />
-                            <Checkbox value="art and design" label="Art & Design" />
-                            <Checkbox value="business" label="Business" />
-                            <Checkbox value="dentistry" label="Dentistry" />
-                            <Checkbox value="education" label="Education" />
-                            <Checkbox value="engineering" label="Engineering" />
-                            <Checkbox value="environmental and sustainability" label="Environmental & Sust." />
-                            <Checkbox value="information" label="Information" />
-                            <Checkbox value="public health" label="Public Health" />
-                            <Checkbox value="public policy" label="Public Policy" />
+                            <Checkbox value="sarchitecture" label="Architecture" />
+                            <Checkbox value="sart and design" label="Art & Design" />
+                            <Checkbox value="sbusiness" label="Business" />
+                            <Checkbox value="sdentistry" label="Dentistry" />
+                            <Checkbox value="seducation" label="Education" />
+                            <Checkbox value="sengineering" label="Engineering" />
+                            <Checkbox value="senvironmental and sustainability" label="Environmental & Sust." />
+                            <Checkbox value="sinformation" label="Information" />
+                            <Checkbox value="slsa" label="LSA" />
+                            <Checkbox value="spublic health" label="Public Health" />
+                            <Checkbox value="spublic policy" label="Public Policy" />
                         </ScrollArea>
                     </div>
                     <Text ta="center">Credits</Text>
@@ -88,15 +97,22 @@ const Search = () => {
                     <Text ta="center">Major</Text>
                     <div className='filter-borders'>
                         <ScrollArea h={100} offsetScrollbars>
-                            <Checkbox value="anthropology" label="Anthropology" />
-                            <Checkbox value="cognitive science" label="Cognitive Science" />
-                            <Checkbox value="computer science" label="Computer Science" />
-                            <Checkbox value="finance" label="Finance" />
-                            <Checkbox value="mathematics" label="Mathematics" />
-                            <Checkbox value="music" label="Music" />
-                            <Checkbox value="neuroscience" label="Neuroscience" />
-                            <Checkbox value="physics" label="Physics" />
-                            <Checkbox value="political science" label="Political Science" />
+                            <Checkbox value="manthropology" label="Anthropology" />
+                            <Checkbox value="mbiology" label="Biology" />
+                            <Checkbox value="mcommunications" label="Communications" />
+                            <Checkbox value="mcomputer science" label="Computer Science" />
+                            <Checkbox value="meconomics" label="Economics" />
+                            <Checkbox value="mfinance" label="Finance" />
+                            <Checkbox value="mfilm" label="Film" />
+                            <Checkbox value="mforeign language" label="Foreign Language" />
+                            <Checkbox value="mioe" label="Industrial Operations Engineering" />
+                            <Checkbox value="mmathematics" label="Mathematics" />
+                            <Checkbox value="mmusic" label="Music" />
+                            <Checkbox value="mnatural science" label="Natural Science" />
+                            <Checkbox value="mneuroscience" label="Neuroscience" />
+                            <Checkbox value="mphilosophy" label="Philosophy" />
+                            <Checkbox value="mpsychology" label="Psychology" />
+                            <Checkbox value="mother" label="Other" />
                             
                         </ScrollArea>
                     </div>
@@ -139,7 +155,7 @@ const Search = () => {
             <hr width="100%" size="2" color="#ECECEC"/>
             <div className="wrapper-grid">
             {currData.length < 1 && <Title>No Results Found</Title>}
-            {currData.length > 0 && currData.map((data) => <ClassCard key={data.className} data={data}></ClassCard>)}
+            {currData.length > 0 && currData.map((data) => <ClassCard key={data.subject_code} data={data}></ClassCard>)}
             </div>
         </>
     )
