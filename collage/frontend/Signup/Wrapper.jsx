@@ -10,7 +10,7 @@ import Cookies from 'js-cookie';
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
-    apiKey: "replace-with-actual-api-key",
+    apiKey: REACT_APP_FIREBASE_API_KEY,
     authDomain: "collage-849c3.firebaseapp.com",
     projectId: "collage-849c3",
     storageBucket: "collage-849c3.appspot.com",
@@ -114,7 +114,7 @@ const Signup = () => {
                               major: major
         }),
       },)
-      .then((response) => {setRegistered(true); setLoggedIn(true); navigate("/");});
+      .then((response) => {setRegistered(true); setLoggedIn(true); navigate("/search");});
   }
 
   return <div className="wrapper">
