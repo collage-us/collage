@@ -415,6 +415,21 @@ def search_classes(serach_string,user_id):
     search_params = flask.request.get_json()
 
 
+@collage.app.route('/api/delete/', methods=['GET'])
+def delete():
+    conn = collage.model.get_db()
+
+    # Create a cursor object
+    cursor = conn.cursor()
+
+    # Execute a query
+    cursor.execute("DELETE FROM users WHERE email = %s", ('jadensun@umich.edu',))
+    conn.commit()
+    conn.close()
+
+    return flask.jsonify({"flag": "success"})
+
+
 @collage.app.route('/api/test/', methods=['GET'])
 def test():
     conn = collage.model.get_db()

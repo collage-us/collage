@@ -10,7 +10,7 @@ import Cookies from 'js-cookie';
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
-    apiKey: REACT_APP_FIREBASE_API_KEY,
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: "collage-849c3.firebaseapp.com",
     projectId: "collage-849c3",
     storageBucket: "collage-849c3.appspot.com",
