@@ -10,7 +10,7 @@ import Cookies from 'js-cookie';
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    apiKey: 'AIzaSyDc5B7m__Z77iTyQYmb9cXxrn7Bo3a9C18',
     authDomain: "collage-849c3.firebaseapp.com",
     projectId: "collage-849c3",
     storageBucket: "collage-849c3.appspot.com",
@@ -28,7 +28,7 @@ const Signup3 = lazy(() => import('./Signup-3'));
 const Signup4 = lazy(() => import('./Signup-4'))
 import '../CSS/Signup.css';
 
-const Signup = () => {
+const Signup = ({setLoggedIn, setRegistered}) => {
   const [currPage, setCurrPage] = useState(0);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');

@@ -1,3 +1,12 @@
+::placeholder {
+  color: "#242424";
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color: black;
+}
+
 .main-grid {
   height: 100vh;
   width: 100vw;
@@ -29,37 +38,43 @@
 }
 
 .card {
-    grid-column-start: auto span 1;
-    grid-row-start: auto span 1;
+  grid-column-start: auto span 1;
+  grid-row-start: auto span 1;
 }
 
 .card:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .card-header {
-    padding: 10px;
+  padding: 10px;
 }
 
 .filter-borders {
-    border-width: thin;
-    border-style: solid;
-    border-radius: 10px;
-    margin: 10px;
-    padding: 10px;
+  border-width: thin;
+  border-style: solid;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
 }
 
-.filters-footer{
-    display: inline-flex;
-    width: 100%;
-    margin-right: 10px;
-    justify-content: right;
+.filters-footer {
+  display: inline-flex;
+  width: 100%;
+  margin-right: 10px;
+  justify-content: right;
 }
 
-.confirm-button{
-    padding: 15px 5px 0px 0px
+.confirm-button {
+  padding: 15px 5px 0px 0px;
 }
 
-.cancel-button{
-    padding: 15px 5px 0px 5px
+.cancel-button {
+  padding: 15px 5px 0px 5px;
+}
+
+@media screen and (max-width: 1200px) {
+  .wrapper-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
