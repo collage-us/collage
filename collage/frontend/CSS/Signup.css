@@ -16,6 +16,7 @@
 
 .collageTitle {
   width: 100vw;
+  margin-left: 35vw;
   padding-top: 2.5%;
   padding-bottom: 2.5%;
 }
@@ -185,4 +186,8 @@
 .dropZone h4 {
   font-weight: normal;
   margin: 0;
+}
+
+.buttons-page {
+  display: flex;
 }

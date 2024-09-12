@@ -1,44 +1,84 @@
-import React from 'react';
-import { TextInput, PasswordInput } from '@mantine/core';
-import '../CSS/Signup.css';
+import React, {useState} from 'react';
+import { Group, Text, rem } from '@mantine/core';
+import { IconUpload, IconX} from '@tabler/icons-react';
+import { Dropzone, PDF_MIME_TYPE } from '@mantine/dropzone';
 
-const Signup4 = ({email, setEmail, password, setPassword, confirmPassword, setConfirmPassword, valid, setValid}) => {
-  return <div>
-    <TextInput  value={email} onChange={(e) => setEmail(e.currentTarget.value)} required label="Come up with a good password!" placeholder="Email (.edu email only)" size="lg"
-                styles={
-                  {
-                    label: {fontSize: 24, textAlign: 'left', alignContent: 'left'},
-                    input: {fontSize: 20}
-                  }
-                }/>
-      <br/>
-      <PasswordInput value={password} onChange={(e) => setPassword(e.currentTarget.value)} placeholder="Password" size="lg"
-        styles={
-          {
-            label: {fontSize: 24, textAlign: 'left', alignContent: 'left'},
-            input: {fontSize: 20}
-          }
-        }/>
-      <br/>
-      <PasswordInput value={confirmPassword} onChange={(e) => setConfirmPassword(e.currentTarget.value)} placeholder="Re-enter Password" size="lg"
-        styles={
-          {
-            label: {fontSize: 24, textAlign: 'left', alignContent: 'left'},
-            input: {fontSize: 20}
-          }
-        }/>
-      <br/>
-      <p className="passwordText">
-        • At least 8 characters
-        <br/>
-        • One letter and one number
-      </p>
-  </div>
-  // first textinput is Label: Come up with a good password! Placeholder: Email (.edu email only) and required
-  // second password input is no label, Placeholder: Password and required and see password option
-  // third password input is no label, Placeholder: Re-enter password and required with requirement labels: * At least 8 characters and * One letter and one number
-  // need to figure out how to make it turn red when it doesnt match
-  // include strength meter for passwords
+const Signup3 = ({setResumeFile, setTranscriptFile}) => {
+  const [resume, setResume] = useState();
+  const [transcript, setTranscript] = useState();
+  const [resumeText, setResumeText] = useState('Click to select a file or drag here');
+  const [transcriptText, setTranscriptText] = useState('Click to select a file or drag here');
+  return (
+    <div className='dropZone'>
+    <Text size="xl">Upload your resume:</Text>
+    <Dropzone
+      multiple={false}
+      style={{height: "40%", color: '#5d5d5d' }}
+      onDrop={(files) => {console.log('accepted files', files); setResume(files); setResumeFile(files[0]); setResumeText('Current file: ' + files[0].path);}}
+      onReject={(files) => console.log('rejected files', files)}
+      maxSize={5 * 1024 ** 2}
+      accept={PDF_MIME_TYPE}
+    >
+      <Group justify="center" gap="xl" mih={60} style={{ pointerEvents: 'none' }}>
+        <Dropzone.Accept>
+          {resumeText !== 'Click to select a file or drag here' && <IconUpload
+            style={{ width: rem(52), height: rem(52), color: 'var(--mantine-color-blue-6)' }}
+            stroke={1.5}
+          />}
+        </Dropzone.Accept>
+        <Dropzone.Reject>
+          <IconX
+            style={{ width: rem(52), height: rem(52), color: 'var(--mantine-color-red-6)' }}
+            stroke={1.5}
+          />
+        </Dropzone.Reject>
+        <Dropzone.Idle>
+          <IconUpload
+            style={{ width: rem(52), height: rem(52), color: 'var(--mantine-color-dimmed)' }}
+            stroke={1.5}
+          />
+        </Dropzone.Idle>
+          <Text size="md">
+            {resumeText}
+          </Text>
+      </Group>
+    </Dropzone>
+    <Text size="xl">Upload your transcript:</Text>
+    <Dropzone
+      multiple={false}
+      style={{height: "40%", color: '#5d5d5d' }}
+      onDrop={(files) => {console.log('accepted files', files); setTranscript(files); setTranscriptFile(files[0]); setTranscriptText('Current file: ' + files[0].path);}}
+      onReject={(files) => console.log('rejected files', files)}
+      maxSize={5 * 1024 ** 2}
+      accept={PDF_MIME_TYPE}
+    >
+      <Group justify="center" gap="xl" mih={60} style={{ pointerEvents: 'none' }}>
+        <Dropzone.Accept>
+          <IconUpload
+            style={{ width: rem(52), height: rem(52), color: 'var(--mantine-color-blue-6)' }}
+            stroke={1.5}
+          />
+        </Dropzone.Accept>
+        <Dropzone.Reject>
+          <IconX
+            style={{ width: rem(52), height: rem(52), color: 'var(--mantine-color-red-6)' }}
+            stroke={1.5}
+          />
+        </Dropzone.Reject>
+        <Dropzone.Idle>
+          <IconUpload
+            style={{ width: rem(52), height: rem(52), color: 'var(--mantine-color-dimmed)' }}
+            stroke={1.5}
+          />
+        </Dropzone.Idle>
+          <Text size="md">
+            {transcriptText}
+          </Text>
+      </Group>
+    </Dropzone>
+    </div>
+  );
+  // two file inputs using the dropzone extension
 };
 
-export default Signup4;
+export default Signup3;
