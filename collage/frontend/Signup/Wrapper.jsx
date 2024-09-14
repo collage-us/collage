@@ -1,16 +1,16 @@
 import React, {useState, lazy} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Title, ActionIcon, Dialog, Text } from '@mantine/core';
+import { Image, Title, ActionIcon, Dialog, Text } from '@mantine/core';
 import { IconCircleChevronRight, IconCircleChevronLeft } from '@tabler/icons-react';
 import '@mantine/core/styles/Button.css';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 import { ref, getStorage, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import Cookies from 'js-cookie';
-
+import fullLogo from '../images/full-logo.png';
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    apiKey: 'AIzaSyDc5B7m__Z77iTyQYmb9cXxrn7Bo3a9C18',
     authDomain: "collage-849c3.firebaseapp.com",
     projectId: "collage-849c3",
     storageBucket: "collage-849c3.appspot.com",
@@ -28,7 +28,7 @@ const Signup3 = lazy(() => import('./Signup-3'));
 const Signup4 = lazy(() => import('./Signup-4'))
 import '../CSS/Signup.css';
 
-const Signup = () => {
+const Signup = ({setLoggedIn, setRegistered}) => {
   const [currPage, setCurrPage] = useState(0);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -38,12 +38,13 @@ const Signup = () => {
   const [major, setMajor] = useState('');
   const [startYear, setStartYear] = useState(2020);
   const [gradYear, setGradYear] = useState(2025);
+  const [interests, setInterests] = useState([]);
   const [resumeFile, setResumeFile] = useState();
   const [transcriptFile, setTranscriptFile] = useState();
   const [errorDialog, setErrorDialog] = useState(false);
   const [validEntries, setValidEntries] = useState(false); //should be set to true when the states of the current page are valid
-  const titleTexts = ['Hey there!', 'Get excited!', 'Last step! (optional)'];
-  const buttonTexts = ['Next step', 'Keep going', 'Start Collage'];
+  const titleTexts = ['Hey there!', 'Get excited!', 'Select your interests', 'Last step! (optional)'];
+  const buttonTexts = ['Next step', 'Keep going', 'Complete', 'Start Collage'];
   const navigate = useNavigate();
   const handleNext = (e) => {
     e.preventDefault();
@@ -131,7 +132,7 @@ const Signup = () => {
         </Text>
       </Dialog>
     <div className="collageTitle">
-        <Title order={1}>Collage</Title>
+        <Image w="30vw"src={ fullLogo }/>
     </div>
     <div className="wrapperBox">
         <div className="wrapperNav">
@@ -140,7 +141,7 @@ const Signup = () => {
                     <IconCircleChevronLeft stroke="1.5" color="black"/>
                 </ActionIcon>
             </div>}
-            {currPage < 2 && <div className="rightArrow">
+            {currPage < 3 && <div className="rightArrow">
                 <ActionIcon variant="subtle" onClick={(e) => (handleNext(e))}>
                     <IconCircleChevronRight stroke="1.5" color="black"/>
                 </ActionIcon>
@@ -150,12 +151,13 @@ const Signup = () => {
         <div className="wrapperContent">
         {currPage == 0 && <Signup1 first={firstName} setFirst={setFirstName} last={lastName} setLast={setLastName} valid={validEntries} setValid={setValidEntries}/>}
         {currPage == 1 && <Signup2 major={major} setMajor={setMajor} startYear={startYear} setStartYear={setStartYear} gradYear={gradYear} setGradYear={setGradYear} valid={validEntries} setValid={setValidEntries}/>}
-        {currPage == 2 && <Signup3 setResumeFile={setResumeFile} setTranscriptFile={setTranscriptFile}/>}
+        {currPage == 2 && <Signup3 interests={interests} setInterests={setInterests} setValid={setValidEntries}/>}
+        {currPage == 3 && <Signup4 setResumeFile={setResumeFile} setTranscriptFile={setTranscriptFile}/>}
         {/* {currPage == 3 && <Signup4 email={email} setEmail={setEmail} password={password} setPassword={setPassword} confirmPassword={confirmPassword} setConfirmPassword={setConfirmPassword} valid={validEntries} setValid={setValidEntries}/>} */}
 
         </div>
         <div className="wrapperFooter">
-            <button onClick={(e) => {if(currPage != 2) {handleNext(e);} else {handleSubmit(e)}}} className="bottomButton">{buttonTexts[currPage]}</button>
+            <button onClick={(e) => {if(currPage != 3) {handleNext(e);} else {handleSubmit(e)}}} className="bottomButton">{buttonTexts[currPage]}</button>
             <br/>
             {/* <p className="bottomText">Already have an account? <Link to="/login">Log in</Link></p> */}
         </div>

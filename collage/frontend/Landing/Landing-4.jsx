@@ -37,7 +37,7 @@ const Landing4 = () => {
               input: {fontSize: 20}
             }
           }/>
-        <Link to="/signup" className="get-started-link">Get Started</Link>
+        <Link to="/login" className="get-started-link">Get Started</Link>
         <Link to="/login" className="log-in-link">Already a member? Log In</Link>
 
       </div>

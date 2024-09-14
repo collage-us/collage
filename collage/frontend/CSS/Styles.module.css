@@ -1,0 +1,5 @@
+.textInput {
+    &::placeholder {
+      color: "#242424";
+    }
+  }

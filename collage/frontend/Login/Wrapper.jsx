@@ -1,9 +1,10 @@
 import React, { useState, lazy } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Title, Dialog, Text, TextInput, Button} from '@mantine/core';
+import { Image, Title, Dialog, Text, TextInput, Button} from '@mantine/core';
 import { useGoogleLogin } from "@react-oauth/google";
 import '../CSS/Signup.css';
 import googleLogo from '../images/google-logo.png';
+import fullLogo from '../images/full-logo.png';
 
 async function getUserInfo(codeResponse) {
   var response = await fetch("/api/login/", {
@@ -61,7 +62,7 @@ const Login = ({loggedIn, setLoggedIn, registered, setRegistered}) => {
         </Text>
       </Dialog>
       <div className="collageTitle">
-        <Link to="/"><Title order={1}>Collage</Title></Link>
+        <Image src={ fullLogo } w="30vw"/>
       </div>
       <div className="wrapperBoxLogin">
         <div className="wrapperNav"></div>

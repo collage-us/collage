@@ -17,7 +17,7 @@ const Landing1 = () => {
         <div className="signup-container">
           <Text style={{ fontSize: '2.5vw' }} fw={700} className="signup-text">Get Started!</Text>
           <TextInput placeholder="Your .edu email here" className="signup-input"/>
-          <Link to="/signup" className="signup-button">Sign up</Link>
+          <Link to="/login" className="signup-button">Sign up</Link>
         </div>
 
         <LazyLoadImage radius="md" src={mainBackground} className="main-background-image"/>

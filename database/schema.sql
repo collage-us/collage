@@ -68,3 +68,10 @@ CREATE TABLE saved_courses (
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
     FOREIGN KEY (course_id) REFERENCES courses(course_id) ON DELETE CASCADE
 );
+
+CREATE TABLE filters (
+    filter_id INT AUTO_INCREMENT PRIMARY KEY,
+    filter_cat VARCHAR(255) NOT NULL,
+    filter_value VARCHAR(255) UNIQUE NOT NULL,
+    filter_name VARCHAR(255) UNIQUE NOT NULL,
+);
