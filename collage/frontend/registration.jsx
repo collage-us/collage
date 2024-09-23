@@ -2,8 +2,7 @@ import React, { Suspense, useState, lazy } from "react";
 // import PropTypes from "prop-types";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import { Title, Button, Group } from '@mantine/core';
-const Navbar = lazy(() => import('./Navbar'));
-const Landing = lazy(() => import('./Landing/Landing'));
+const LandingNew = lazy(() => import('./Landing/Landing-new'));
 const About = lazy(() => import('./About'));
 const ForStudents = lazy(() => import('./ForStudents'));
 const Support = lazy(() => import('./Support'));
@@ -20,9 +19,8 @@ export default function Registration() {
     <Suspense fallback={<h1>loading...</h1>}>
         <Router>
           <div>
-            <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} setRegistered={setRegistered}/>
             <Routes>
-              <Route path="/" element={<Landing />} />
+              <Route path="/" element={<LandingNew />} />
               <Route path="/about" element={<About />} />
               <Route path="/forstudents" element={<ForStudents />} />
               <Route path="/support" element={<Support />} />

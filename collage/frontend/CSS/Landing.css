@@ -20,21 +20,28 @@
 }
 
 .landing-logo {
-  width: 230px;
-  margin-bottom: 17px;
+  width: 200px;
+  margin-bottom: 14px;
 }
 
 .landing-tagline {
   font-size: 1.5rem;
   font-family: "Helvetica Neue-Regular", Helvetica;
   font-weight: 400;
-  margin-bottom: 100px;
+  margin-bottom: 5px;
+}
+
+.landing-description{
+  font-size: 1rem;
+  font-family: "Helvetica Neue-Regular", Helvetica;
+  margin-bottom: 30px;
+  text-align: center;
+  width: 800px;
 }
 
 .landing-video-demo {
-  width: 60%;
-  height: 40%;
-  background-color: #d9d9d9;
+  width: 40%;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,6 +56,13 @@
   background-color: #f4f4f4;
   color: #8DADFF;
   font-size: 1rem;
+}
+
+.landing-sign-up-button:hover{
+  background-color: #FF7C7C;
+  color: white;
+  transition: 0.4s;
+  cursor: pointer;
 }
 
 .landing-page-box{
