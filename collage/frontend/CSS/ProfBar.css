@@ -88,3 +88,17 @@
   border-radius: 50px;
 }
 
+.side {
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 1;
+
+  min-width: fit-content;
+}
+@media (max-width: 1440px) {
+  .side {
+    overflow-x: hidden;
+  }
+}
