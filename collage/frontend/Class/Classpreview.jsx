@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../CSS/classPreview.css';
 const ProfileBar = lazy(() => import('./ProfileBar'))
 
-const Classpreview  = () => {
+const Classpreview = () => {
     return (
         <div className="main-grid">
             <div className="profile">
