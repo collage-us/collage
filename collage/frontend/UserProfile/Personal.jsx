@@ -71,9 +71,11 @@ const Personal = ({isUser, userName}) => {
               <img src={userData.profilePicture} alt="Profile" className="profile-picture" />
               
               {/* camera button */}
-              <button onClick={() => alert("change prof pic")} className="camera-button"> 
-                <img src={camera} alt="Camera" className="camera"/>
-              </button>
+              {isUser && (
+                <button onClick={() => alert("change prof pic")} className="camera-button"> 
+                  <img src={camera} alt="Camera" className="camera"/>
+                </button>
+              )}
             </div>
 
             <div className="header-content">
