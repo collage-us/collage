@@ -1,0 +1,183 @@
+.personal-container{
+  margin-bottom: 10%;
+}
+
+.header-image-container{
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.header-image{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.profile-picture{
+  position: absolute;
+  bottom: -80px;
+  left: 20%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 8px solid white;
+  object-fit: cover;
+}
+
+.camera-button{
+  position: absolute;
+  bottom: -60px;
+  left: 30%;
+  padding: 0;
+  width: 35px;
+  height: 35px;
+  background-color: white;
+  border: none;
+  border-radius: 50px;
+}
+
+.camera-button:hover{
+  cursor: pointer;
+}
+
+.camera-button img{
+  width: 100%;
+  height: 100%;
+}
+
+.header-content{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 0;
+  width: 100%;
+  margin-top: 100px;
+  padding-left: 22%;
+  padding-right: 22%;
+  align-items: top;
+}
+
+.header-content .name{
+  grid-column: 1;
+  grid-row: 1;
+  margin: 0;
+}
+
+.header-content .user-tag{
+  grid-column: 1;
+  grid-row: 2;
+  margin: 0;
+  color: rgb(146, 146, 146);
+}
+
+.header-content .edit-icon{
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  height: 30px;
+  margin: 0;
+  background-color: white;
+  border: none;
+  text-decoration: underline;
+  font-weight: bold;
+  color: #8DADFF;
+}
+
+.edit-icon{
+  padding: none;
+}
+
+.edit-icon:hover{
+  cursor: pointer;
+}
+
+.header-content .icons{
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: end;
+  margin: 0;
+}
+
+.icons{
+  padding: 8px 8px 1px 8px;
+  border: 1px solid rgb(224, 224, 224);
+  border-radius: 10px;
+
+}
+
+.icons .email{
+  width: 50px;
+  height: auto;
+  padding: 0;
+  background-color: white;
+  border: none;
+  padding-right: 14px;
+}
+
+.icons .linkedin{
+  width: 29px;
+  height: auto;
+  padding: 0;
+  background-color: white;
+  border: none;
+}
+
+.icons .email:hover{
+  cursor: pointer;
+}
+
+.icons .linkedin:hover{
+  cursor: pointer;
+}
+
+.icons .email img{
+  width: 100%;
+  height: 100%;
+}
+
+.icons .linkedin img{
+  width: 100%;
+  height: 100%;
+}
+
+.header-content .followers{
+  grid-column: 1;
+  grid-row: 3;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.followers{
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.followers p{
+  margin: 0;
+}
+
+.info{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(4, auto);
+  gap: 2px;
+  padding-left: 22%;
+  padding-right: 22%;
+}
+
+.label{
+  grid-column: 1;
+  font-weight: bold;
+  align-self: center;
+  margin: 10px 0px 10px 0px;
+  color: rgb(126, 126, 126);
+}
+
+.data{
+  grid-column: 2;
+  align-self: center;
+  margin: 10px 0px 10px 0px;
+}
