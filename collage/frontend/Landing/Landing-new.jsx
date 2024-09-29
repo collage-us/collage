@@ -25,8 +25,8 @@ const Landing = () => {
                 <button className="landing-sign-up-button">Get Started</button>
             </Link>
 
-            <Link to="/profile">
-                <button>profile</button>
+            <Link to="/file">
+                <button>file</button>
             </Link>
         </div>
     );
