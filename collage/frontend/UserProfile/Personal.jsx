@@ -6,7 +6,12 @@ import linkedin64 from '../images/linkedin64.png';
 import camera from '../images/change-profile.png';
 import '../CSS/Personal.css';
 
-const Personal = (isUser) => {
+const Personal = ({isUser, userName}) => {
+  const [isPopupVisible, setPopupVisible] = useState(false);
+  const togglePopup = () => {
+    setPopupVisible(!isPopupVisible);
+  }
+
   //const [userData, setUserData] = useState(null);
 
   // useEffect(() => {
@@ -30,15 +35,42 @@ const Personal = (isUser) => {
     email: "maxfeld@umich.edu",
     linkedin: "https://www.linkedin.com/in/maxbfeldman/"
   }
-
+  console.log(isUser);
+  console.log(typeof isUser);
   return (
     <>
       {/* {userData ? ( */}
         <div className="personal-container">
           <div className="header">
             <div className="header-image-container">
+              {/* top header image */}
               <img src={headerImage} alt="image" className="header-image"/>
+
+              {/* pencil button */}
+              {isUser && (
+                <button onClick={togglePopup} className="pencil-button" style={{backgroundColor: "transparent"}}>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="pencil-icon" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#2c3e50" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+                    <path d="M13.5 6.5l4 4" />
+                  </svg>
+                </button>
+              )}
+
+              {/* popup box */}
+              {isPopupVisible && (
+                <div className="popup-overlay" onClick={togglePopup}>
+                  <div className="popup-box" onClick={e => e.stopPropagation()}>
+                    <h2>Blank Popup</h2>
+                    <button onClick={togglePopup}>Close</button>
+                  </div>
+                </div>
+              )}
+
+              {/* profile picture */}
               <img src={userData.profilePicture} alt="Profile" className="profile-picture" />
+              
+              {/* camera button */}
               <button onClick={() => alert("change prof pic")} className="camera-button"> 
                 <img src={camera} alt="Camera" className="camera"/>
               </button>
@@ -48,7 +80,11 @@ const Personal = (isUser) => {
               <h1 className="name">{userData.name}</h1>
               <p className="user-tag">@{userData.userTag} &nbsp; | &nbsp; {userData.pronouns}</p>
               
-              <button className="edit-icon" style={{padding: "15px 0px 0px 0px"}} onClick={() => alert("edit profile")}>edit profile</button>
+              {/* edit profile button */}
+              {isUser && (
+                <button className="edit-icon" style={{padding: "15px 0px 0px 0px"}} onClick={() => alert("edit profile")}>edit profile</button>
+              )}
+
               <div className="icons">
                 {userData.email ? (
                   <button onClick={() => window.location.href = `mailto:${userData.email}`} className="email">
@@ -59,6 +95,7 @@ const Personal = (isUser) => {
                     <img src={gmail64} alt="gmail"/>
                   </button>
                 )}
+                
                 {userData.linkedin ? (
                   <button onClick={() => window.open(userData.linkedin, '_blank')} className="linkedin">
                     <img src={linkedin64} alt="gmail"/>

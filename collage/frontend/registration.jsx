@@ -28,7 +28,7 @@ export default function Registration() {
               <Route path="/search" element={<Catalog />} />
               <Route path="/login" element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} registered={registered} setRegistered={setRegistered}/>} />
               <Route path="/signup" element={<Signup setLoggedIn={setLoggedIn} setRegistered={setRegistered}/>} />
-              <Route path="/profile" element={<Personal />}/>
+              <Route path="/profile" element={<Personal isUser={true} userName="hello"/>}/>
             </Routes>
           </div>
         </Router>
