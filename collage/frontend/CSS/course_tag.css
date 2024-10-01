@@ -1,0 +1,154 @@
+.course-tag {
+    width: 260px;
+    height: 250px;
+    border-radius: 12px;
+    border: 1px solid #000000;
+    overflow: hidden;
+    cursor: pointer;
+
+}
+
+.course-tag:hover {
+
+    filter: brightness(0.95);
+    background-color: #f9f9f9;
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.15);
+    /*make it so that everything is darkened*/
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: lightblue;
+    font-family: "Proxima Nova", Arial, Helvetica, sans-serif;
+    border: 1px solid #000000;
+}
+
+.course-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.course-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+}
+
+.course-number {
+    margin: 0;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.course-name {
+    margin: 0;
+    font-size: 14px;
+    font-weight: normal;
+    font-family: "Proxima Nova", Arial, Helvetica, sans-serif;
+}
+
+.credits {
+    margin-left: auto;
+    padding: 5px 10px;
+    color: black;
+    border: 1px solid #000000;
+    font-size: 12px;
+    border-radius: 8px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+
+.body {
+    padding: 10px;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+.rating-text {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+.top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 15px;
+    height: 30px;
+}
+
+.match {
+    color: black;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    display: flex;
+    font-weight: 400;
+    font-size: 14px;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.match p {
+    color: #439b43;
+    font-weight: bold;
+    margin: 0;
+}
+
+.rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.star {
+    padding: 1px;
+}
+
+
+.star-text {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    color: #5b5b5b
+}
+
+.course-tag-text {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+
+.tags {
+    display: flex;
+    margin-top: 5px;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.tag {
+    background-color: #d7d7d7;
+    border-radius: 8px;
+    padding: 4px 10px;
+    align-items: flex-end;
+    align-content: flex-end;
+    font-size: 12px;
+    border: 1px solid #000000;
+}
