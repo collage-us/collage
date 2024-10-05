@@ -10,6 +10,8 @@ const Signup = lazy(() => import('./Signup/Wrapper'));
 const Login = lazy(() => import('./Login/Wrapper'));
 const Search = lazy(() => import('./Search/SearchWrapper'));
 const Catalog = lazy(() => import('./Search/Catalog'));
+const Personal = lazy(() => import('./UserProfile/Personal'));
+const FileUpload = lazy(() => import('./UserProfile/FileUpload'));
 
 export default function Registration() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -27,6 +29,8 @@ export default function Registration() {
               <Route path="/search" element={<Catalog />} />
               <Route path="/login" element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} registered={registered} setRegistered={setRegistered}/>} />
               <Route path="/signup" element={<Signup setLoggedIn={setLoggedIn} setRegistered={setRegistered}/>} />
+              <Route path="/profile" element={<Personal isUser={true} userName="hello"/>}/>
+              <Route path="/file" element={<FileUpload />}/>
             </Routes>
           </div>
         </Router>
