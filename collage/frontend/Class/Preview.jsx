@@ -1,10 +1,10 @@
-import { Container, Grid, Image } from "@mantine/core";
+import { Container, Grid, Image, Rating } from "@mantine/core";
 import React, {useState, useEffect, lazy} from "react";
 import { Link } from 'react-router-dom';
 import '../CSS/Search.css';
 import '../CSS/classPreview.css';
 const SearchWrapper = lazy(() => import('../Search/SearchWrapper'));
-import fullLogo from '../images/full-logo.png';
+// import fullLogo from '../images/full-logo.png';
 import icon from '../images/temp.png';
 const Rating = lazy(() => import('./rating'))
 
@@ -12,13 +12,13 @@ const Classpreview = () => {
     return (
         <div className="main-grid">
             <div className="header">
-                <div className="gray-part"></div>
+                {/* <div className="gray-part"></div>
                 <div className="header-container">
                     <Image src={ fullLogo } className="collage-header"/>
                 </div>
                 <div className="searchbar">
                     <SearchWrapper/>
-                </div>
+                </div> */}
                 <div className="content">
                     <Link to="/Search">
                         <button className="landing-sign-up-button">back</button>
@@ -35,7 +35,7 @@ const Classpreview = () => {
                                 <div className="rating">
                                     <button className="save">Save</button>
                                     <button className="rate">Rate</button>
-                                    {/* <Rating/> */}
+                                    <Rating fractions={2} defaultValue={4.5} />
                                 </div>
                             </div>
                             <div className="newLine">
