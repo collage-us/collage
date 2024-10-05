@@ -1,0 +1,50 @@
+.courses {
+    list-style: none;
+    width: 95vw;
+}
+
+.course {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    border: 1px #A7a7a7 solid;
+    border-radius: 15px;
+    padding: 10px 20px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.logo {
+    margin-left: -15px;
+    min-height: 110px;
+    min-width: auto;
+}
+
+.text {
+    width: 70%;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+.description {
+    margin-top: 0;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 40px;
+}
+
+.bookmark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

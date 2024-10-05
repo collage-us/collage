@@ -7,8 +7,8 @@
 .gray-part{
   background-color: #404040;
   width: 100%;
-  height: 30vh;
-  min-height: 210px;
+  height: 12%;
+  min-height: 100px;
   position: absolute;
   top: 0;
   left: 0;
@@ -22,7 +22,7 @@
 }
 
 .header-container{
-  margin-top: 22%;
+  margin-top: 8%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,7 +37,7 @@
 .prof-pic{
   border-radius: 50%;
   border: 1px solid black;
-  margin-top: 10vh;
+  /* margin-top: 10vh; */
   width: 40%;
 }
 
@@ -88,3 +88,19 @@
   border-radius: 50px;
 }
 
+.side {
+  width: 20%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 1;
+  font-size: 14px;
+
+  max-width: fit-content;
+  height: fit-content;
+}
+@media (max-width: 1440px) {
+  .side {
+    overflow-x: hidden;
+  }
+}
