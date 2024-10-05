@@ -6,10 +6,40 @@ import linkedin64 from '../images/linkedin64.png';
 import camera from '../images/change-profile.png';
 import '../CSS/Personal.css';
 
+let userData = {
+  profilePicture: batman,
+  name: "Max Feldman",
+  userTag: "MaxFeldman",
+  pronouns: "he/him",
+  followers: "200",
+  following: "124",
+  major: "Philosophy, Politics, Economics",
+  minor: "Creative Writing and Entrepreneurship",
+  college: "Undergraduate LSA",
+  graduationYear: "2026",
+  email: "maxfeld@umich.edu",
+  linkedin: "https://www.linkedin.com/in/maxbfeldman/"
+}
+
 const Personal = ({isUser, userName}) => {
   const [isPopupVisible, setPopupVisible] = useState(false);
+  const [profile, setProfile] = useState(userData);
+  
   const togglePopup = () => {
     setPopupVisible(!isPopupVisible);
+  }
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setProfile((prevProfile) => ({
+      ...prevProfile,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = () => {
+    // Make POST request here
+    userData = profile;
   }
 
   //const [userData, setUserData] = useState(null);
@@ -21,20 +51,6 @@ const Personal = ({isUser, userName}) => {
   //     .catch(error => console.error('Error:', error));
   // }, [userName]);
 
-  const userData = {
-    profilePicture: batman,
-    name: "Max Feldman",
-    userTag: "MaxFeldman",
-    pronouns: "he/him",
-    followers: "200",
-    following: "124",
-    major: "Philosophy, Politics, Economics",
-    minor: "Creative Writing and Entrepreneurship",
-    college: "Undergraduate LSA",
-    graduationYear: "2026",
-    email: "maxfeld@umich.edu",
-    linkedin: "https://www.linkedin.com/in/maxbfeldman/"
-  }
   console.log(isUser);
   console.log(typeof isUser);
   return (
@@ -61,8 +77,72 @@ const Personal = ({isUser, userName}) => {
               {isPopupVisible && (
                 <div className="popup-overlay" onClick={togglePopup}>
                   <div className="popup-box" onClick={e => e.stopPropagation()}>
-                    <h2>Blank Popup</h2>
-                    <button onClick={togglePopup}>Close</button>
+                    <h2>Edit Profile</h2>
+                    <button onClick={togglePopup}>X</button>
+                    <div>
+                      <p>Name</p>
+                      <input 
+                        type="text"
+                        name="name"
+                        value={profile.name}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <div>
+                      <p>Major</p>
+                      <input 
+                        type="text"
+                        name="major"
+                        value={profile.major}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <div>
+                      <p>Minor</p>
+                      <input 
+                        type="text"
+                        name="minor"
+                        value={profile.minor}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <div>
+                      <p>Minor</p>
+                      <input 
+                        type="text"
+                        name="college"
+                        value={profile.college}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <div>
+                      <p>Graduation Year</p>
+                      <input 
+                        type="text"
+                        name="graduationYear"
+                        value={profile.graduationYear}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <div>
+                      <p>LinkedIn</p>
+                      <input 
+                        type="text"
+                        name="linkedin"
+                        value={profile.linkedin}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <div>
+                      <p>Gmail</p>
+                      <input 
+                        type="text"
+                        name="gmail"
+                        value={profile.email}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <button onClick={() => { handleSubmit(); togglePopup(); }}>Save Changes</button>
                   </div>
                 </div>
               )}
