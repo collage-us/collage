@@ -50,6 +50,12 @@ const Personal = ({isUser, userName}) => {
   //     .then(data => setUserData(data))
   //     .catch(error => console.error('Error:', error));
   // }, [userName]);
+  // useEffect(() => {
+  //   fetch(`/api/user?userName=${encodeURIComponent(userName)}`)
+  //     .then(response => response.json())
+  //     .then(data => setUserData(data))
+  //     .catch(error => console.error('Error:', error));
+  // }, [userName]);
 
   console.log(isUser);
   console.log(typeof isUser);
