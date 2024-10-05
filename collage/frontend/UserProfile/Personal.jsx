@@ -77,72 +77,84 @@ const Personal = ({isUser, userName}) => {
               {isPopupVisible && (
                 <div className="popup-overlay" onClick={togglePopup}>
                   <div className="popup-box" onClick={e => e.stopPropagation()}>
-                    <h2>Edit Profile</h2>
-                    <button onClick={togglePopup}>X</button>
-                    <div>
-                      <p>Name</p>
-                      <input 
-                        type="text"
-                        name="name"
-                        value={profile.name}
-                        onChange={handleChange}
-                      />
+                    <div className="popup-header">
+                      <h2>Edit Profile</h2>
+                      <button onClick={togglePopup} className="close-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                          <path d="M18 6l-12 12" />
+                          <path d="M6 6l12 12" />
+                        </svg>
+                      </button>
                     </div>
-                    <div>
-                      <p>Major</p>
-                      <input 
-                        type="text"
-                        name="major"
-                        value={profile.major}
-                        onChange={handleChange}
-                      />
+                    <div className="popup-content">
+                      <div className="form-group">
+                        <p>Name</p>
+                        <input 
+                          type="text"
+                          name="name"
+                          value={profile.name}
+                          onChange={handleChange}
+                        />
+                      </div>
+                      <div className="form-group">
+                        <p>Major</p>
+                        <input 
+                          type="text"
+                          name="major"
+                          value={profile.major}
+                          onChange={handleChange}
+                        />
+                      </div>
+                      <div className="form-group">
+                        <p>Minor</p>
+                        <input 
+                          type="text"
+                          name="minor"
+                          value={profile.minor}
+                          onChange={handleChange}
+                        />
+                      </div>
+                      <div className="form-group">
+                        <p>Minor</p>
+                        <input 
+                          type="text"
+                          name="college"
+                          value={profile.college}
+                          onChange={handleChange}
+                        />
+                      </div>
+                      <div className="form-group">
+                        <p>Graduation Year</p>
+                        <input 
+                          type="text"
+                          name="graduationYear"
+                          value={profile.graduationYear}
+                          onChange={handleChange}
+                        />
+                      </div>
+                      <div className="form-group">
+                        <p>LinkedIn</p>
+                        <input 
+                          type="text"
+                          name="linkedin"
+                          value={profile.linkedin}
+                          onChange={handleChange}
+                        />
+                      </div>
+                      <div className="form-group">
+                        <p>Gmail</p>
+                        <input 
+                          type="text"
+                          name="gmail"
+                          value={profile.email}
+                          onChange={handleChange}
+                        />
+                      </div>
                     </div>
-                    <div>
-                      <p>Minor</p>
-                      <input 
-                        type="text"
-                        name="minor"
-                        value={profile.minor}
-                        onChange={handleChange}
-                      />
+                    <div className="popup-footer">
+                      <button onClick={() => { handleSubmit(); togglePopup(); }} className="save-btn">Save Changes</button>
                     </div>
-                    <div>
-                      <p>Minor</p>
-                      <input 
-                        type="text"
-                        name="college"
-                        value={profile.college}
-                        onChange={handleChange}
-                      />
-                    </div>
-                    <div>
-                      <p>Graduation Year</p>
-                      <input 
-                        type="text"
-                        name="graduationYear"
-                        value={profile.graduationYear}
-                        onChange={handleChange}
-                      />
-                    </div>
-                    <div>
-                      <p>LinkedIn</p>
-                      <input 
-                        type="text"
-                        name="linkedin"
-                        value={profile.linkedin}
-                        onChange={handleChange}
-                      />
-                    </div>
-                    <div>
-                      <p>Gmail</p>
-                      <input 
-                        type="text"
-                        name="gmail"
-                        value={profile.email}
-                        onChange={handleChange}
-                      />
-                    </div>
-                    <button onClick={() => { handleSubmit(); togglePopup(); }}>Save Changes</button>
                   </div>
                 </div>
               )}
