@@ -84,9 +84,9 @@ const Profile = ({ userId, operation }) => {
           {/* <Link to="/Classpreview">
             <button>class</button>
           </Link> */}
-          <Link to="/Savedcourses">
+          {/* <Link to="/Savedcourses">
             <button>saved</button>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </div>
