@@ -1,0 +1,138 @@
+.main-grid {
+    max-width: 435px;
+    max-height: 434px;
+    border: black solid 1px;
+    border-radius: 10px;
+    padding: 0 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header {
+    width: 100%;
+}
+
+.head {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.headDescription {
+    font-size: 14px;
+    color: #686868;
+}
+
+.body {
+    display: flex;
+    flex-direction: row;
+    max-width: fit-content;
+}
+
+.sub-body {
+    display: flex;
+    flex-direction: column;
+    max-width: fit-content;
+    height: 63px;
+    margin-top: -2px;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.description {
+    margin: 0;
+    font-size: 12px;
+    color: #666666;
+}
+
+.explore {
+    margin-top: 5px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.footer {
+    padding-top: 10px;
+    margin: 0 auto;
+    width: 119px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.collage-header {
+    background-color: #404040;
+    width: 83px;
+    height: auto;
+    margin: 0 auto
+}
+
+.photos {
+    display: flex;
+    flex-direction: row;
+}
+
+.pic {
+    width: 46px;
+    height: 46px;
+    border: 1px solid white;
+    border-radius: 9.76;
+}
+
+.picture1 {
+    position: relative;
+    z-index: 1;
+    transform: rotate(-7.21deg);
+}
+
+.picture2 {
+    position: relative;
+    right: 15px;
+    z-index: 2;
+    transform: rotate(-4.49deg);
+}
+
+.picture3 {
+    position: relative;
+    right: 25px;
+    z-index: 3;
+    transform: rotate(11.21deg);
+}
+
+.picture4 {
+    position: relative;
+    right: 35px;
+    z-index: 4;
+    transform: rotate(10.8deg);
+}
+
+.picture5 {
+    position: relative;
+    z-index: 1;
+    transform: rotate(-4.49deg);
+}
+
+.picture6 {
+    position: relative;
+    right: 15px;
+    z-index: 2;
+    transform: rotate(10.8deg);
+}
+
+.picture7 {
+    position: relative;
+    right: 25px;
+    z-index: 3;
+    transform: rotate(-7.21deg);
+}
+
+.picture8 {
+    position: relative;
+    right: 35px;
+    z-index: 4;
+    transform: rotate(11.21deg);
+}

@@ -75,4 +75,4 @@ const Savedcourses = () => {
     )
 }
 
-export default Savedcourses
+export default Savedcourses;

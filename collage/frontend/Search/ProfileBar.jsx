@@ -35,7 +35,7 @@ const Profile = ({ userId, operation }) => {
   // }
 
   return(
-    <div class='side'>
+    <div className='side'>
       <div className="background-container">
         <div className="gray-part"></div>
 
@@ -81,11 +81,8 @@ const Profile = ({ userId, operation }) => {
             <p style={{ textAlign: "center" }} className="registration-time">November 28th at 3:00pm</p>
           </div>
 
-          {/* <Link to="/Classpreview">
-            <button>class</button>
-          </Link> */}
-          {/* <Link to="/Savedcourses">
-            <button>saved</button>
+          {/* <Link to="/Activityglimpse">
+            <button>Activity</button>
           </Link> */}
         </div>
       </div>
