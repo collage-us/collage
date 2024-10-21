@@ -6,7 +6,7 @@ import '../CSS/activityglimpse.css';
 
 const Activityglimpse = () => {
     return (
-        <div className="main-grid">
+        <div className="activity">
             <div className="header">
                 <h1 className="head">Activity Glimpse</h1>
                 <p className="headDescription">Explore what your peers have been up to on the Collage App!</p>
