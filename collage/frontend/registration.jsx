@@ -14,6 +14,9 @@ const Classpreview = lazy(() => import('./Class/Preview'));
 const Savedcourses = lazy(() => import('./UserProfile/Savedcourses'));
 const Personal = lazy(() => import('./UserProfile/Personal'));
 const FileUpload = lazy(() => import('./UserProfile/FileUpload'));
+const Classpreview = lazy(() => import('./Class/Preview'));
+const Savedcourses = lazy(() => import('./UserProfile/Savedcourses'));
+const Activityglimpse = lazy(() => import('./UserProfile/Activityglimpse'));
 
 export default function Registration() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -35,6 +38,9 @@ export default function Registration() {
               <Route path="/Savedcourses" element={<Savedcourses />} />
               <Route path="/profile" element={<Personal isUser={true} userName="hello"/>}/>
               <Route path="/file" element={<FileUpload />}/>
+              <Route path="/Classpreview" element={<Classpreview />} />
+              <Route path="/Savedcourses" element={<Savedcourses />} />
+              <Route path="/Activityglimpse" element={<Activityglimpse />} />
             </Routes>
           </div>
         </Router>

@@ -35,7 +35,7 @@ const Profile = ({ userId, operation }) => {
   // }
 
   return(
-    <div class='side'>
+    <div className='side'>
       <div className="background-container">
         <div className="gray-part"></div>
 
