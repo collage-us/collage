@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
-import { Link, Image } from '@mantine/core';
+import { Link } from 'react-router-dom';
+import {Image } from '@mantine/core';
 import profPic from '../images/prof-pic.jpg';
 import fullLogo from '../images/full-logo.png';
 import '../CSS/ProfBar.css';
@@ -34,7 +35,7 @@ const Profile = ({ userId, operation }) => {
   // }
 
   return(
-    <div>
+    <div class='side'>
       <div className="background-container">
         <div className="gray-part"></div>
 
@@ -79,6 +80,9 @@ const Profile = ({ userId, operation }) => {
             <p style={{ textAlign: "center", fontSize: "1.3rem", marginBottom: "15px"}}>Registration Date:</p>
             <p style={{ textAlign: "center" }} className="registration-time">November 28th at 3:00pm</p>
           </div>
+          <Link to="/Classpreview">
+            <button>class</button>
+          </Link>
         </div>
       </div>
     </div>
