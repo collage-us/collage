@@ -1,3 +1,8 @@
+h1 {
+    font-size: 80px;
+    color: red;
+}
+
 .main-grid {
     height: 100vh;
     width: 100vw;
@@ -32,7 +37,6 @@
     height: 12%;
     width: 20%;
 }
-
 .profile {
     grid-column-start: 1;
     grid-column-end: 2;
@@ -130,4 +134,3 @@ h1 {
 .status {
     background-color: #C0FFC6;
 }
-

@@ -80,10 +80,9 @@ const Profile = ({ userId, operation }) => {
             <p style={{ textAlign: "center", fontSize: "1.3rem", marginBottom: "15px"}}>Registration Date:</p>
             <p style={{ textAlign: "center" }} className="registration-time">November 28th at 3:00pm</p>
           </div>
-
-          {/* <Link to="/UserProfile">
-            <button>user profile</button>
-          </Link> */}
+          <Link to="/Classpreview">
+            <button>class</button>
+          </Link>
         </div>
       </div>
     </div>
