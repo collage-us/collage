@@ -11,8 +11,126 @@ h1 {
     grid-template-rows: 1fr;
 }
 
+.gray-part{
+    background-color: #404040;
+    width: 18%;
+    height: 7%;
+    min-height: 90px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.header {
+    width: 100vw;
+    position: relative;
+}
+
+.header-container {
+    margin-top: -10px;
+    margin-left: -28px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 12%;
+    width: 20%;
+}
 .profile {
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 1;
+}
+
+.wrapper-grid {
+    display: none;
+}
+
+.searchbar {
+    margin-left: 20%;
+    margin-top: 28px;
+}
+
+.content {
+    padding: 45px;
+    display: flex;
+    flex-direction: row;
+}
+
+.preview {
+    width: 80%;
+    margin: 30px;
+    padding: 30px;
+    border: 1px #d0e0ff solid;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+.card {
+    width: 55%;
+    padding: 5%;
+}
+
+.description {
+    width: 45%;
+}
+
+.newLine {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+}
+
+.icon {
+    width: 88px;
+    height: 88px;
+    border-radius: 15px;
+}
+
+.classTitle {
+    margin-left: 50px;
+    height: 88px;
+}
+
+h1 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.match {
+    color: #439b4c;
+}
+
+.info {
+    margin: 15px;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.value {
+    border: 1px black solid;
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+}
+
+.credits {
+    background-color: #c2d7fe;
+}
+
+.subject {
+    background-color: #ff7c7c;
+}
+
+.department {
+    background-color: #ffe6c1;
+}
+
+.status {
+    background-color: #C0FFC6;
 }
